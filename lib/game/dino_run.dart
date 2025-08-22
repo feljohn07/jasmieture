@@ -1,4 +1,5 @@
 import 'package:dino_run/game/rive_character.dart';
+import 'package:dino_run/main.dart';
 import 'package:dino_run/widgets/main_menu.dart';
 import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flame/events.dart';
@@ -10,6 +11,7 @@ import 'package:hive/hive.dart';
 import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/components.dart';
+import 'package:provider/provider.dart';
 
 import '/game/dino.dart';
 import '/widgets/hud.dart';
@@ -24,7 +26,10 @@ import 'package:flame_rive/flame_rive.dart';
 
 // This is the main flame game class.
 class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, KeyboardEvents {
-  DinoRun({super.camera});
+  final Settings settings;
+  final PlayerData playerData;
+
+  DinoRun({super.camera, required this.playerData, required this.settings});
 
   // List of all the image assets.
   static const _imageAssets = [
@@ -47,9 +52,9 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     'jump14.wav',
   ];
 
-  late Dino _dino;
-  late Settings settings;
-  late PlayerData playerData;
+  // late Dino _dino;
+  // late Settings settings;
+  // late PlayerData playerData;
   late EnemyManager _enemyManager;
 
   late SkillsAnimationComponent _runningCharacter;
@@ -57,18 +62,36 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
 
   Vector2 get virtualSize => camera.viewport.virtualSize;
 
+  // TODO - TESTING on passing buildContext inside game component
+  @override
+  // late BuildContext buildContext;
+  // ------------------------------------------------------------
+
   // This method get called while flame is preparing this game.
   @override
   Future<void> onLoad() async {
-    characterArtboard = await loadArtboard(RiveFile.asset('assets/rive/running_and_jumping.riv'));
+    //
+    // TODO - TESTING on passing buildContext inside game component
+    //
+    //
+    // Access PlayerData from Provider
+    // testProvider = Provider.of<TestProvider>(
+    //   buildContext, // You get buildContext from GameWidget
+    //   listen: false,
+    // );
+
+    characterArtboard =
+        await loadArtboard(RiveFile.asset('assets/rive/running_and_jumping (4).riv'), artboardName: 'Character 1');
 
     // Makes the game full screen and landscape only.
     await Flame.device.fullScreen();
     await Flame.device.setLandscape();
 
     /// Read [PlayerData] and [Settings] from hive.
-    playerData = await _readPlayerData();
-    settings = await _readSettings();
+    // playerData = await _readPlayerData();
+    // settings = await _readSettings();
+
+    print('bgm --------- ${settings.bgm}');
 
     /// Initilize [AudioManager].
     await AudioManager.instance.init(_audioAssets, settings);
@@ -90,7 +113,9 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
         ParallaxImageData('parallax/plx-2.png'),
         ParallaxImageData('parallax/plx-3.png'),
         ParallaxImageData('parallax/plx-4.png'),
-        ParallaxImageData('parallax/plx-5.png'),
+        // ParallaxImageData('parallax/plx-5.png'),
+        ParallaxImageData('parallax/plx-custom.png'),
+
         ParallaxImageData('parallax/plx-6.png'),
       ],
       baseVelocity: Vector2(10, 0),
@@ -100,28 +125,40 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     // Add the parallax as the backdrop.
     camera.backdrop.add(parallaxBackground);
 
-    _dino = Dino(images.fromCache('DinoSprites - tard.png'), playerData);
+    // _dino = Dino(images.fromCache('DinoSprites - tard.png'), playerData);
+    _runningCharacter = SkillsAnimationComponent(
+      characterArtboard,
+      playerData: playerData,
+    ); // TO-DO - Add playerData Here, to access the selected items settings - DONE
+
+    startGamePlay();
+    overlays.add(Hud.id);
   }
 
   /// This method add the already created [Dino]
   /// and [EnemyManager] to this game.
+  ///
+  /// Params => level,
+  ///
   void startGamePlay() async {
     _enemyManager = EnemyManager();
 
-    world.add(_dino);
-    world.add(_enemyManager);
-
-    _runningCharacter = SkillsAnimationComponent(characterArtboard);
+    // world.add(_dino);
 
     world.add(_runningCharacter);
+
+    world.add(_enemyManager);
+
+    // playerData.level = 2;
   }
 
   // This method remove all the actors from the game.
   void _disconnectActors() {
-    _dino.removeFromParent();
+    // _dino.removeFromParent();
+    _runningCharacter.removeFromParent();
+
     _enemyManager.removeAllEnemies();
     _enemyManager.removeFromParent();
-    _runningCharacter.removeFromParent();
   }
 
   // This method reset the whole game world to initial state.
@@ -145,13 +182,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
       AudioManager.instance.pauseBgm();
     }
 
-    if (_dino.isHit) {
-      overlays.remove(Hud.id);
-      overlays.add(QuestionOverlay.id);
-      pauseEngine();
-      AudioManager.instance.pauseBgm();
-
-      _dino.isHit = false;
+    // Show Question when the character hits enemy
+    if (_runningCharacter.isHit) {
+      // _dino.isHit = false;
+      _runningCharacter.isHit = false;
     }
 
     super.update(dt);
@@ -163,7 +197,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     // Make dino jump only when game is playing.
     // When game is in playing state, only Hud will be the active overlay.
     if (overlays.isActive(Hud.id)) {
-      _dino.jump();
+      // _dino.jump();
       _runningCharacter.jump();
     }
     super.onTapDown(info);
@@ -179,7 +213,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
 
     if (isKeyDown) {
       if (keysPressed.contains(LogicalKeyboardKey.space) || keysPressed.contains(LogicalKeyboardKey.arrowUp)) {
-        _dino.jump();
+        // _dino.jump();
         _runningCharacter.jump();
       } else if (keysPressed.contains(LogicalKeyboardKey.arrowDown)) {
         // _dino.down();
@@ -189,37 +223,38 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     return KeyEventResult.ignored;
   }
 
-  /// This method reads [PlayerData] from the hive box.
-  Future<PlayerData> _readPlayerData() async {
-    final playerDataBox = await Hive.openBox<PlayerData>(
-      'DinoRun.PlayerDataBox',
-    );
-    final playerData = playerDataBox.get('DinoRun.PlayerData');
+  // /// This method reads [PlayerData] from the hive box.
+  // Future<PlayerData> _readPlayerData() async {
+  //   final playerDataBox = await Hive.openBox<PlayerData>(
+  //     'DinoRun.PlayerDataBox',
+  //   );
 
-    // If data is null, this is probably a fresh launch of the game.
-    if (playerData == null) {
-      // In such cases store default values in hive.
-      await playerDataBox.put('DinoRun.PlayerData', PlayerData());
-    }
+  //   final playerData = playerDataBox.get('DinoRun.PlayerData');
 
-    // Now it is safe to return the stored value.
-    return playerDataBox.get('DinoRun.PlayerData')!;
-  }
+  //   // If data is null, this is probably a fresh launch of the game.
+  //   if (playerData == null) {
+  //     // In such cases store default values in hive.
+  //     await playerDataBox.put('DinoRun.PlayerData', PlayerData());
+  //   }
 
-  /// This method reads [Settings] from the hive box.
-  Future<Settings> _readSettings() async {
-    final settingsBox = await Hive.openBox<Settings>('DinoRun.SettingsBox');
-    final settings = settingsBox.get('DinoRun.Settings');
+  //   // Now it is safe to return the stored value.
+  //   return playerDataBox.get('DinoRun.PlayerData')!;
+  // }
 
-    // If data is null, this is probably a fresh launch of the game.
-    if (settings == null) {
-      // In such cases store default values in hive.
-      await settingsBox.put('DinoRun.Settings', Settings(bgm: true, sfx: true));
-    }
+  // /// This method reads [Settings] from the hive box.
+  // Future<Settings> _readSettings() async {
+  //   final settingsBox = await Hive.openBox<Settings>('DinoRun.SettingsBox');
+  //   final settings = settingsBox.get('DinoRun.Settings');
 
-    // Now it is safe to return the stored value.
-    return settingsBox.get('DinoRun.Settings')!;
-  }
+  //   // If data is null, this is probably a fresh launch of the game.
+  //   if (settings == null) {
+  //     // In such cases store default values in hive.
+  //     await settingsBox.put('DinoRun.Settings', Settings(bgm: true, sfx: true));
+  //   }
+
+  //   // Now it is safe to return the stored value.
+  //   return settingsBox.get('DinoRun.Settings')!;
+  // }
 
   @override
   void lifecycleStateChange(AppLifecycleState state) {
@@ -241,6 +276,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
           overlays.remove(Hud.id);
           overlays.add(PauseMenu.id);
         }
+        AudioManager.instance.pauseBgm(); // TODO: testing of pausing bgm
         pauseEngine();
         break;
     }

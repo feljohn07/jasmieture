@@ -86,30 +86,48 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
                       'Which materials absorb water which do not',
                       style: TextStyle(color: Colors.white),
                     ),
-                    const Text(
-                      'a. choice 1',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    const Text(
-                      'b. choice 2',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    const Text(
-                      'c. choice 3',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
+                    InkWell(
+                      onTap: () {
+                        context.read<PlayerData>().currentScore++;
                         widget.game.overlays.remove(QuestionOverlay.id);
                         widget.game.overlays.add(Hud.id);
                         widget.game.resumeEngine();
                         AudioManager.instance.resumeBgm();
                       },
                       child: const Text(
-                        'Proceed',
-                        style: TextStyle(fontSize: 30),
+                        'a. choice 1',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
+                    InkWell(
+                      onTap: () {
+                        context.read<PlayerData>().lives--;
+                        widget.game.overlays.remove(QuestionOverlay.id);
+                        widget.game.overlays.add(Hud.id);
+                        widget.game.resumeEngine();
+                        AudioManager.instance.resumeBgm();
+                      },
+                      child: const Text(
+                        'b. choice 2',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    const Text(
+                      'c. choice 3',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    // ElevatedButton(
+                    //   onPressed: () {
+                    //     widget.game.overlays.remove(QuestionOverlay.id);
+                    //     widget.game.overlays.add(Hud.id);
+                    //     widget.game.resumeEngine();
+                    //     AudioManager.instance.resumeBgm();
+                    //   },
+                    //   child: const Text(
+                    //     'Proceed',
+                    //     style: TextStyle(fontSize: 30),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

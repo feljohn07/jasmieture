@@ -20,6 +20,7 @@ dependencies:
   rive: ^0.13.20
   flame_rive: ^1.10.12
   go_router: ^16.0.0
+  easy_localization: ^3.0.8
 
 
 dev_dependencies:
@@ -39,6 +40,7 @@ flutter:
     - assets/images/Rino/
     - assets/audio/
     - assets/rive/
+    - assets/translations/
 
   fonts:
     - family: Audiowide

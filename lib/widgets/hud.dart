@@ -20,6 +20,9 @@ class Hud extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final level = context.watch<PlayerData>().level;
+    final chapter = context.watch<PlayerData>().chapter;
+
     return ChangeNotifierProvider.value(
       value: game.playerData,
       child: Padding(
@@ -33,9 +36,14 @@ class Hud extends StatelessWidget {
                 Selector<PlayerData, int>(
                   selector: (_, playerData) => playerData.currentScore,
                   builder: (_, score, __) {
-                    return Text(
-                      'Score: $score',
-                      style: const TextStyle(fontSize: 20, color: Colors.white),
+                    return Row(
+                      children: [
+                        Icon(Icons.star),
+                        Text(
+                          'SCORE: $score',
+                          style: const TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                      ],
                     );
                   },
                 ),
@@ -43,11 +51,31 @@ class Hud extends StatelessWidget {
                   selector: (_, playerData) => playerData.highScore,
                   builder: (_, highScore, __) {
                     return Text(
-                      'High: $highScore',
+                      'High: $highScore ',
                       style: const TextStyle(color: Colors.white),
                     );
                   },
                 ),
+                // Selector<PlayerData, int>(
+                //   selector: (_, playerData) => playerData.currentScore,
+                //   builder: (_, stars, __) {
+                //     return Text(
+                //       'Stars: $stars',
+                //       style: const TextStyle(color: Colors.white),
+                //     );
+                //   },
+                // ),
+                Selector<PlayerData, int>(
+                  selector: (_, playerData) => playerData.level,
+                  builder: (_, level, __) {
+                    return Text(
+                      'level: $level',
+                      style: const TextStyle(color: Colors.white),
+                    );
+                  },
+                ),
+                Text('$level'),
+                Text('$chapter'),
               ],
             ),
             TextButton(

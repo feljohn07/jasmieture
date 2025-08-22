@@ -1,6 +1,10 @@
 import 'dart:ui';
 
+import 'package:dino_run/main.dart';
+import 'package:dino_run/screens/shop.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 import '/widgets/hud.dart';
 import '/game/dino_run.dart';
@@ -18,6 +22,8 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final testValue = context.watch<TestProvider>();
+
     return Center(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
@@ -38,7 +44,7 @@ class MainMenu extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 spacing: 10,
                 children: [
-                  const Text(
+                  Text(
                     'Jasmieture',
                     style: TextStyle(fontSize: 50, color: Colors.white),
                   ),
@@ -50,13 +56,38 @@ class MainMenu extends StatelessWidget {
                     },
                     child: const Text('Play', style: TextStyle(fontSize: 30)),
                   ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     context.read<TestProvider>().increment();
+                  //   },
+                  //   child: const Text('Increment', style: TextStyle(fontSize: 30)),
+                  // ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     game.overlays.remove(MainMenu.id);
+                  //     game.overlays.add(SettingsMenu.id);
+                  //   },
+                  //   child: const Text(
+                  //     'Settings',
+                  //     style: TextStyle(fontSize: 30),
+                  //   ),
+                  // ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     game.overlays.remove(MainMenu.id);
+                  //     game.overlays.add(ShopScreen.id);
+                  //   },
+                  //   child: const Text(
+                  //     'Shop',
+                  //     style: TextStyle(fontSize: 30),
+                  //   ),
+                  // ),
                   ElevatedButton(
                     onPressed: () {
-                      game.overlays.remove(MainMenu.id);
-                      game.overlays.add(SettingsMenu.id);
+                      context.go('/');
                     },
                     child: const Text(
-                      'Settings',
+                      'Exit',
                       style: TextStyle(fontSize: 30),
                     ),
                   ),

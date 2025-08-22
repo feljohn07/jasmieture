@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '/widgets/hud.dart';
@@ -73,6 +75,7 @@ class PauseMenu extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         game.overlays.remove(PauseMenu.id);
+                        game.overlays.remove(QuestionOverlay.id);
                         game.overlays.add(Hud.id);
                         game.resumeEngine();
                         game.reset();
@@ -86,11 +89,13 @@ class PauseMenu extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        game.overlays.remove(PauseMenu.id);
-                        game.overlays.add(MainMenu.id);
-                        game.resumeEngine();
+                        // game.overlays.remove(PauseMenu.id);
+                        // game.overlays.remove(QuestionOverlay.id);
+                        // game.overlays.add(MainMenu.id);
+                        // game.resumeEngine();
                         game.reset();
-                        AudioManager.instance.resumeBgm();
+                        // AudioManager.instance.resumeBgm();
+                        context.go('/');
                       },
                       child: const Text('Exit', style: TextStyle(fontSize: 30)),
                     ),

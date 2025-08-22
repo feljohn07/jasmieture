@@ -1,0 +1,922 @@
+[
+    {
+        "level": 1,
+        "chapters": [
+            {
+                "chapter": 1,
+                "title": "Mga Kinaiya sa mga Butang",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Hain sa mosunod nga mga materyales ang mosuhop og tubig?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Plastik, metal, bildo", "imagePath": null},
+                            {"id": "b", "answer": "Spongha, panapton, papel", "imagePath": null},
+                            {"id": "c", "answer": "Goma, bato, marmol", "imagePath": null},
+                            {"id": "d", "answer": "Bildo, plastik, aluminum", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Hain niini nga mga materyales ang molutaw sa tubig?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Kahoy, taklob sa plastik nga botelya, cork", "imagePath": null},
+                            {"id": "b", "answer": "Bato, metal nga kutsara, sensilyo", "imagePath": null},
+                            {"id": "c", "answer": "Bildo, lansang nga puthaw, seramik nga tasa", "imagePath": null},
+                            {"id": "d", "answer": "Tisa, marmol, sensilyo", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsang mga materyales ang kasagarang madunot?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Mga prutas, utanon, salin nga pagkaon", "imagePath": null},
+                            {"id": "b", "answer": "Bildo, plastik, metal", "imagePath": null},
+                            {"id": "c", "answer": "Bato, marmol, balas", "imagePath": null},
+                            {"id": "d", "answer": "Aluminum foil, goma, mga lansang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Unsang sakit ang mahimong makuha tungod sa pagkaladlad sa mga nadunot nga materyales?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Sakit sa ngipon ug pi-ang", "imagePath": null},
+                            {"id": "b", "answer": "Dengue ug tipdas", "imagePath": null},
+                            {"id": "c", "answer": "Impeksyon sa panit ug kalibanga", "imagePath": null},
+                            {"id": "d", "answer": "Sakit sa ulo ug sakit sa tutunlan", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Unsa ang usa ka epekto sa mga nadunot nga materyales sa kahimsog ug kaluwasan?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Naghimo sa palibot nga humot", "imagePath": null},
+                            {"id": "b", "answer": "Nagadani og mga insekto ug nagdala og mga sakit", "imagePath": null},
+                            {"id": "c", "answer": "Naghimo sa tubig nga limpyo ug klaro", "imagePath": null},
+                            {"id": "d", "answer": "Nagpabilin nga hapsay ang palibot", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Nganong importante ang pagbasa sa mga label sa produkto?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Aron mahibal-an lang ang ngalan sa brand", "imagePath": null},
+                            {"id": "b", "answer": "Aron masusi lang ang presyo", "imagePath": null},
+                            {"id": "c", "answer": "Aron mahibal-an ang saktong paggamit ug mga pag-amping sa kaluwasan", "imagePath": null},
+                            {"id": "d", "answer": "Aron makita ang kolor sa produkto", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 7,
+                        "question": "Unsa ang pinakamaayong paagi sa pag-lain-lain o pagbulag sa mga materyales?",
+                        "audio": null,
+                        "correctChoice": "d",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa pagsagol sa tanang materyales", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi lang sa gidak-on ug porma", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi lang sa kolor", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa malata ug dili malata", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 2,
+                "title": "Mga Kausaban nga Maagian sa mga Materyales",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Unsaon paglabay sa basura sa hustong paagi?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Sunugon tanan", "imagePath": null},
+                            {"id": "b", "answer": "Ilabay bisan asa", "imagePath": null},
+                            {"id": "c", "answer": "Ibulag ang mga malata ug dili malata nga mga materyales", "imagePath": null},
+                            {"id": "d", "answer": "Ilubong ang tanang basura sa yuta", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsa ang usa ka pag-amping sa kaluwasan sa paglabay og basura?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pagsul-ob og gwantes ug maskara", "imagePath": null},
+                            {"id": "b", "answer": "Pagpiyong samtang naglabay og basura", "imagePath": null},
+                            {"id": "c", "answer": "Paggamit og kamot nga walay proteksyon sa paghikap sa basura", "imagePath": null},
+                            {"id": "d", "answer": "Pagdula og mga hait nga butang sa basurahan", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsay mahitabo sa mga solidong materyales kon pug-on?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Sila hingpit nga mawala", "imagePath": null},
+                            {"id": "b", "answer": "Nausab ang ilang porma o gidak-on", "imagePath": null},
+                            {"id": "c", "answer": "Sila matunaw", "imagePath": null},
+                            {"id": "d", "answer": "Sila molutaw sa tubig", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Unsay mahitabo sa mga materyales kon painitan ug dayon pabugnawon?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Magpabilin sila nga parehas ra", "imagePath": null},
+                            {"id": "b", "answer": "Mahimong mausab ang ilang gidak-on, porma, o kahimtang", "imagePath": null},
+                            {"id": "c", "answer": "Sila mawala sa hangin", "imagePath": null},
+                            {"id": "d", "answer": "Mahimo silang metal", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Unsay mahitabo sa mga solidong materyales kon isagol sa uban pang solidong materyales?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Makahimo sila og sagol (mixture)", "imagePath": null},
+                            {"id": "b", "answer": "Sila hingpit nga matunaw", "imagePath": null},
+                            {"id": "c", "answer": "Sila dihadiha matunaw", "imagePath": null},
+                            {"id": "d", "answer": "Sila moalisngaw", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Unsay mahitabo sa mga solidong materyales kon isagol sa mga likidong materyales?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Kanunay silang molutaw", "imagePath": null},
+                            {"id": "b", "answer": "Mahimong matunaw o mounlod", "imagePath": null},
+                            {"id": "c", "answer": "Matunaw sila ug mahimong metal", "imagePath": null},
+                            {"id": "d", "answer": "Mahimo silang gas", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 7,
+                        "question": "Unsay mahitabo sa mga likidong materyales kon isagol sa uban pang likidong materyales?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Kanunay silang magbulag sa mga lut-od", "imagePath": null},
+                            {"id": "b", "answer": "Mahimong magsagol og tarong o magbulag depende sa klase", "imagePath": null},
+                            {"id": "c", "answer": "Mahimo silang solido", "imagePath": null},
+                            {"id": "d", "answer": "Sila mawala", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 8,
+                        "question": "Hain sa mosunod ang naghulagway sa mga kausaban sa materyales nga mapuslanon o makadaot sa kalikopan?",
+                        "audio": null,
+                        "correctChoice": "d",
+                        "choices": [
+                            {"id": "a", "answer": "Ang pagsunog sa plastik nagpagawas og makadaot nga aso", "imagePath": null},
+                            {"id": "b", "answer": "Ang pag-compost sa malata nga basura makahimo og abono", "imagePath": null},
+                            {"id": "c", "answer": "Ang pag-recycle sa papel makapakunhod sa basura", "imagePath": null},
+                            {"id": "d", "answer": "Tanan sa nahisgutan", "imagePath": null}
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "level": 2,
+        "chapters": [
+            {
+                "chapter": 1,
+                "title": "Mga Dagkong Organo sa Lawas sa Tawo",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Unsa ang nag-unang gimbuhaton sa mga bukog?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Ang paghimo og pagkaon alang sa lawas", "imagePath": null},
+                            {"id": "b", "answer": "Ang pagsuporta ug pagpanalipod sa lawas", "imagePath": null},
+                            {"id": "c", "answer": "Ang pagbomba og dugo", "imagePath": null},
+                            {"id": "d", "answer": "Ang pagtabang sa pagginhawa", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsa ang anaa sulod sa kalabera sa manok?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Utok", "imagePath": null},
+                            {"id": "b", "answer": "Kasingkasing", "imagePath": null},
+                            {"id": "c", "answer": "Baga", "imagePath": null},
+                            {"id": "d", "answer": "Atay", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsa ang kasagarang kadaot sa paugnat sa kusog?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pi-ang", "imagePath": null},
+                            {"id": "b", "answer": "Pagkadaot sa ngipon", "imagePath": null},
+                            {"id": "c", "answer": "Ubo", "imagePath": null},
+                            {"id": "d", "answer": "Hilanat", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Unsang mga bukog ang nanalipod sa mga internal nga organo?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Mga gusok ug kalabera", "imagePath": null},
+                            {"id": "b", "answer": "Mga tudlo sa kamot ug tiil", "imagePath": null},
+                            {"id": "c", "answer": "Mga bukton ug mga bitiis", "imagePath": null},
+                            {"id": "d", "answer": "Abaga ug apapangig", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Giunsa paghilis ang pagkaon sa tiyan?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi lang sa pag-usap", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa pagsagol sa mga gastric juice ug pagkutaw", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa pagkahimong gas", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa direktang pag-adto sa dugo", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Giunsa paghilis ang pagkaon sa mga tinai?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa pagsagol sa laway", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa pagsuhop sa mga sustansya ngadto sa dugo", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa pagkahimong mga bukog", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa pagbungkag niini ngadto sa mga solidong piraso", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 2,
+                "title": "Mga Mananap",
+                "questions": [
+                     {
+                        "itemNumber": 1,
+                        "question": "Unsa ang mga gimbuhaton sa rinyon (kidneys)?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Ang pagbomba og dugo sa tibuok lawas", "imagePath": null},
+                            {"id": "b", "answer": "Ang pagsala sa hugaw gikan sa dugo ug paghimo og ihi", "imagePath": null},
+                            {"id": "c", "answer": "Ang paghilis sa pagkaon ug pagsuhop sa mga sustansya", "imagePath": null},
+                            {"id": "d", "answer": "Ang pagtabang sa pagginhawa", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsa ang naghimo kanato nga motubag sa mga stimuli?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Kasingkasing", "imagePath": null},
+                            {"id": "b", "answer": "Baga", "imagePath": null},
+                            {"id": "c", "answer": "Sistema sa nerbiyos", "imagePath": null},
+                            {"id": "d", "answer": "Rinyon (Kidneys)", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Giunsa pagpakabuhi sa mga mananap sa tubig?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa pagbaton og mga hasang, kapay, o flippers", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa pagbaton og balhibo ug mga kuko", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa paghimo og mga salag", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa paglupad palayo", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Giunsa pagpakabuhi sa mga mananap sa yuta?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa paspas nga paglangoy", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa pagbaton og mga tiil, baga, ug mga tabon sa lawas sama sa balhibo o mga himbis", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa pagginhawa gamit ang mga hasang", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa paglutaw sa tubig", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Giunsa pagkuha o pagkaon sa mga mananap sa ilang pagkaon?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa paggamit sa ilang espesyal nga mga parte sa lawas sama sa mga sungo, ngipon, o kuko", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa paghulat nga mahulog ang pagkaon sa ilang mga baba", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa pag-inom lang og tubig", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa pagkatulog tibuok adlaw", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Unsang mga parte sa lawas sa mga mananap ang nagtabang sa pagpanalipod kanila gikan sa ilang mga kaaway?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Mga pako, hasang, ug sungo", "imagePath": null},
+                            {"id": "b", "answer": "Mga kabhang, tunok, hait nga ngipon, ug kuko", "imagePath": null},
+                            {"id": "c", "answer": "Mga kapay, himbis, ug bungot", "imagePath": null},
+                            {"id": "d", "answer": "Mga antena, ikog, ug tiil", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 3,
+                "title": "Mga Tanom",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Unsa ang mga mananap nga makita sa usa ka komunidad ug ang ilang puy-anan?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Iro sa disyerto", "imagePath": null},
+                            {"id": "b", "answer": "Isda sa dagat, mga langgam sa mga kahoy", "imagePath": null},
+                            {"id": "c", "answer": "Kamel sa dagat", "imagePath": null},
+                            {"id": "d", "answer": "Baki sa langit", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsang mga mananap ang gipahaom sa usa ka partikular nga puy-anan?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Kamel sa disyerto, polar bear sa Arctic", "imagePath": null},
+                            {"id": "b", "answer": "Dolphin sa lasang", "imagePath": null},
+                            {"id": "c", "answer": "Agila nga nagpuyo ilawom sa tubig", "imagePath": null},
+                            {"id": "d", "answer": "Baka nga nagpuyo sa dagat", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsa ang usa ka kinaiya sa mga tanom?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Sila nagbalhin-balhin og lugar", "imagePath": null},
+                            {"id": "b", "answer": "Naghimo sila sa ilang kaugalingong pagkaon pinaagi sa photosynthesis", "imagePath": null},
+                            {"id": "c", "answer": "Sila mangayam og tukbonon", "imagePath": null},
+                            {"id": "d", "answer": "Maka-lupad sila", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Hain sa mosunod ang pananglitan sa mga tanom sa tubig?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Rosas", "imagePath": null},
+                            {"id": "b", "answer": "Sunflower", "imagePath": null},
+                            {"id": "c", "answer": "Water lily", "imagePath": null},
+                            {"id": "d", "answer": "Punoan sa mangga", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Unsa ang kalainan tali sa mga tanom sa tubig ug mga tanom sa yuta?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Ang mga tanom sa tubig motubo sa tubig; ang mga tanom sa yuta motubo sa yuta", "imagePath": null},
+                            {"id": "b", "answer": "Ang mga tanom sa tubig motubo sa yuta; ang mga tanom sa yuta motubo sa tubig", "imagePath": null},
+                            {"id": "c", "answer": "Ang mga tanom sa tubig wala magkinahanglan og kahayag sa adlaw; ang mga tanom sa yuta nagkinahanglan", "imagePath": null},
+                            {"id": "d", "answer": "Ang mga tanom sa yuta nagkinahanglan og tubig apan ang mga tanom sa tubig dili", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Unsa ang gikinahanglan sa mga tanom aron motubo?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Pagkaon gikan sa mga mananap", "imagePath": null},
+                            {"id": "b", "answer": "Kahayag sa adlaw, tubig, hangin, ug mga sustansya gikan sa yuta", "imagePath": null},
+                            {"id": "c", "answer": "Hangin ug tubig lang", "imagePath": null},
+                            {"id": "d", "answer": "Landong ug walay kahayag sa adlaw", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 4,
+                "title": "Pagkapanunod: Kabilin ug Kalainan",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Hain sa mosunod ang pananglitan sa tanom sa yuta (terrestrial)?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Water hyacinth", "imagePath": null},
+                            {"id": "b", "answer": "Punoan sa mangga", "imagePath": null},
+                            {"id": "c", "answer": "Lotus", "imagePath": null},
+                            {"id": "d", "answer": "Guso (Seaweed)", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsaon nimo pagpatubo ang imong paboritong mga tanom?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa paghatag kanila og igong kahayag sa adlaw, tubig, ug mga sustansya", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa pagbutang kanila sa hingpit nga kangitngit", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa dili pagbisbis kanila", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa pagtangtang sa ilang mga dahon", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsa ang mga liso?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Ang mga gamot sa usa ka tanom", "imagePath": null},
+                            {"id": "b", "answer": "Ang parte sa tanom nga mahimong bag-ong tanom", "imagePath": null},
+                            {"id": "c", "answer": "Ang punoan sa usa ka tanom", "imagePath": null},
+                            {"id": "d", "answer": "Ang mga bulak sa usa ka tanom", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Hain ang monocot ug hain ang dicot?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Monocot: humay; Dicot: mangga", "imagePath": null},
+                            {"id": "b", "answer": "Monocot: mangga; Dicot: mais", "imagePath": null},
+                            {"id": "c", "answer": "Monocot: rosas; Dicot: sagbot", "imagePath": null},
+                            {"id": "d", "answer": "Monocot: lubi; Dicot: kawayan", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Unsa ang gikinahanglan sa mga liso aron moturok?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Hangin lang", "imagePath": null},
+                            {"id": "b", "answer": "Tubig, hangin, ug saktong temperatura", "imagePath": null},
+                            {"id": "c", "answer": "Tubig ug kahayag lang", "imagePath": null},
+                            {"id": "d", "answer": "Kangitngit lang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Kung ang usa ka insekto moagi sa itlog → ulod (larva) → pupa → hamtong (adult), unsa kini nga matang sa metamorphosis?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Dili kompleto nga metamorphosis", "imagePath": null},
+                            {"id": "b", "answer": "Kompleto nga metamorphosis", "imagePath": null},
+                            {"id": "c", "answer": "Diyutay nga metamorphosis", "imagePath": null},
+                            {"id": "d", "answer": "Walay metamorphosis", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 5,
+                "title": "Mga Ekosistema",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Hain sa mosunod ang mga mananap nga mangitlog?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Mga iro ug iring", "imagePath": null},
+                            {"id": "b", "answer": "Mga manok ug itik", "imagePath": null},
+                            {"id": "c", "answer": "Mga kanding ug baka", "imagePath": null},
+                            {"id": "d", "answer": "Mga kabayo ug baboy", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsa ang siklo sa kinabuhi sa mga mananap?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Ang paagi sa pagginhawa sa mga mananap", "imagePath": null},
+                            {"id": "b", "answer": "Ang mga yugto sa pagtubo ug pagbag-o nga maagian sa usa ka mananap gikan sa pagkahimugso hangtod sa pagkahamtong", "imagePath": null},
+                            {"id": "c", "answer": "Ang oras sa pagkatulog sa mga mananap", "imagePath": null},
+                            {"id": "d", "answer": "Ang pagkaon nga gikaon sa mga mananap", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Importante ba ang interaksyon sa mga buhing butang?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Oo, tungod kay makatabang kini sa pagpadayon sa balanse sa kinaiyahan", "imagePath": null},
+                            {"id": "b", "answer": "Dili, tungod kay ang mga buhing butang wala magkinahanglanay sa usag usa", "imagePath": null},
+                            {"id": "c", "answer": "Oo, apan alang lang sa mga mananap", "imagePath": null},
+                            {"id": "d", "answer": "Dili, tungod kay mabuhi sila nga mag-inusara", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Aduna bay mga benepisyo ang interaksyon tali sa mga buhing butang ug sa kalikopan?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Oo, naghatag kini og pagkaon, puy-anan, ug nagtabang sa pag-obra sa mga ekosistema", "imagePath": null},
+                            {"id": "b", "answer": "Dili, nagdala kini og kadaot", "imagePath": null},
+                            {"id": "c", "answer": "Oo, apan alang lang sa mga tawo", "imagePath": null},
+                            {"id": "d", "answer": "Dili, tungod kay nag-usik kini og mga kahinguhaan", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Unsa ang usa ka makadaot nga interaksyon tali sa mga buhing butang?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Mga tanom nga naghimo og oxygen", "imagePath": null},
+                            {"id": "b", "answer": "Mga mananap nga nag-pollinate sa mga bulak", "imagePath": null},
+                            {"id": "c", "answer": "Mga peste nga nagdaot sa mga tanom", "imagePath": null},
+                            {"id": "d", "answer": "Mga isda nga nanglimpyo sa mga coral reef", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Unsang mga kondisyon sa kalikopan ang gikinahanglan sa mga buhing butang?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pagkaon, tubig, hangin, ug angay nga temperatura", "imagePath": null},
+                            {"id": "b", "answer": "Hangin ug kahayag sa adlaw lang", "imagePath": null},
+                            {"id": "c", "answer": "Tubig ug yuta lang", "imagePath": null},
+                            {"id": "d", "answer": "Kainit ug landong lang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 7,
+                        "question": "Giunsa maapektuhan ang mga organismo sa mga pagbag-o sa kalikopan?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Mahimong mopahiangay sila, mobalhin sa bag-ong lugar, o mamatay", "imagePath": null},
+                            {"id": "b", "answer": "Kanunay silang mas paspas motubo", "imagePath": null},
+                            {"id": "c", "answer": "Mahimo silang imortal", "imagePath": null},
+                            {"id": "d", "answer": "Mohunong sila sa pagkaon", "imagePath": null}
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "level": 3,
+        "chapters": [
+            {
+                "chapter": 1,
+                "title": "Puwersa, Lihok ug Enerhiya",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Unsa ang mga epekto sa puwersa sa porma sa usa ka butang?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Nausab ang kolor niini", "imagePath": null},
+                            {"id": "b", "answer": "Mahimo niining mapiko, maunat, o mapatag ang butang", "imagePath": null},
+                            {"id": "c", "answer": "Gipawala niini ang butang", "imagePath": null},
+                            {"id": "d", "answer": "Gihimo niini nga mas bug-at ang butang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Giunsa pag-apekto sa puwersa ang gidak-on sa usa ka butang?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Mahimo niining himuon nga mas gamay o mas dako ang butang", "imagePath": null},
+                            {"id": "b", "answer": "Nausab ang kolor sa butang", "imagePath": null},
+                            {"id": "c", "answer": "Gihimo niini nga likido ang butang", "imagePath": null},
+                            {"id": "d", "answer": "Gihimo niini nga mas gaan ang butang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsang mga materyales ang madani sa magnet?",
+                        "audio": null,
+                        "correctChoice": "c",
+                        "choices": [
+                            {"id": "a", "answer": "Plastik ug kahoy", "imagePath": null},
+                            {"id": "b", "answer": "Goma ug bildo", "imagePath": null},
+                            {"id": "c", "answer": "Bakal ug puthaw", "imagePath": null},
+                            {"id": "d", "answer": "Papel ug panapton", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Giunsa pag-apekto sa puwersa ang paglihok sa usa ka butang?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Gipakatulog niini ang butang", "imagePath": null},
+                            {"id": "b", "answer": "Mahimo niining pasugdan, pahunongon, paspasan, pahinayan, o usbon ang direksyon sa butang", "imagePath": null},
+                            {"id": "c", "answer": "Nausab ang baho sa butang", "imagePath": null},
+                            {"id": "d", "answer": "Gihimo niini nga mas bug-at ang butang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Unsang matang sa puwersa ang gigamit sa usa ka magnet?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Puwersa sa grabitasyon", "imagePath": null},
+                            {"id": "b", "answer": "Puwersa sa magnet", "imagePath": null},
+                            {"id": "c", "answer": "Puwersa sa priksiyon", "imagePath": null},
+                            {"id": "d", "answer": "Puwersa sa elektrisidad", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 2,
+                "title": "Kahayag, Kainit ug Tingog",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Giunsa pagbalhin sa kainit sa mga solid ug likido nga materyales?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Sa mga solido pinaagi sa conduction; sa mga likido pinaagi sa convection", "imagePath": null},
+                            {"id": "b", "answer": "Sa mga solido pinaagi sa convection; sa mga likido pinaagi sa radiation", "imagePath": null},
+                            {"id": "c", "answer": "Sa mga solido pinaagi sa evaporation; sa mga likido pinaagi sa conduction", "imagePath": null},
+                            {"id": "d", "answer": "Sa mga solido pinaagi sa radiation; sa mga likido pinaagi sa condensation", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Giunsa pagbiyahe ang kahayag?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Sa paagi nga zigzag", "imagePath": null},
+                            {"id": "b", "answer": "Sa tul-id nga mga linya", "imagePath": null},
+                            {"id": "c", "answer": "Sa mga lingin", "imagePath": null},
+                            {"id": "d", "answer": "Sa mga balod pinaagi lang sa mga likido", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Giunsa pagbiyahe ang tingog sa lain-laing mga materyales?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Mas paspas sa mga solido, mas hinay sa mga gas", "imagePath": null},
+                            {"id": "b", "answer": "Mas paspas sa mga gas, mas hinay sa mga solido", "imagePath": null},
+                            {"id": "c", "answer": "Parehas nga katulin sa tanang materyales", "imagePath": null},
+                            {"id": "d", "answer": "Nagbiyahe lang sa mga likido", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Hain sa mosunod ang usa ka kinaiya sa kahayag?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Mahimo kining mobawog, mobanda, ug masuhop", "imagePath": null},
+                            {"id": "b", "answer": "Mahimo kining kan-on", "imagePath": null},
+                            {"id": "c", "answer": "Naghimo kini nga mas bug-at ang mga butang", "imagePath": null},
+                            {"id": "d", "answer": "Makita lang kini sa ngitngit", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 5,
+                        "question": "Hain sa mosunod ang usa ka kinaiya sa tingog?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Makabiyahe kini pinaagi sa mga solido, likido, ug gas", "imagePath": null},
+                            {"id": "b", "answer": "Mahimo kining tipigan sa usa ka kahon", "imagePath": null},
+                            {"id": "c", "answer": "Anaa lang kini sa tubig", "imagePath": null},
+                            {"id": "d", "answer": "Wala kini direksyon", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 6,
+                        "question": "Unsa ang paagi aron mapanalipdan ang kaugalingon gikan sa kusog nga kahayag ug tingog?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Paggamit og antipara ug panalipod sa dalunggan", "imagePath": null},
+                            {"id": "b", "answer": "Direktang pagtan-aw sa adlaw", "imagePath": null},
+                            {"id": "c", "answer": "Pagbarog duol sa mga loudspeaker", "imagePath": null},
+                            {"id": "d", "answer": "Pagsinggit sa labing kusog nga mahimo", "imagePath": null}
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "level": 4,
+        "chapters": [
+            {
+                "chapter": 1,
+                "title": "Kalibotan ug Kalawakan",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Mailhan ba nimo ang mga Matang ug Kinaiya sa Yuta?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Balason, Lapokon, ug Loam", "imagePath": null},
+                            {"id": "b", "answer": "Gahi, Humok, ug Basa", "imagePath": null},
+                            {"id": "c", "answer": "Hapsay, Sapnot, ug Pilit", "imagePath": null},
+                            {"id": "d", "answer": "Dako, Gamay, ug Tunga-tunga", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsa ang gikinahanglan sa mga tanom aron motubo?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Mga dulaan, Kahayag sa Adlaw, ug Sapatos", "imagePath": null},
+                            {"id": "b", "answer": "Kahayag sa Adlaw, Tubig, ug Hangin", "imagePath": null},
+                            {"id": "c", "answer": "Mga bato, Balas, ug Papel", "imagePath": null},
+                            {"id": "d", "answer": "Pagkaon, Sapot, ug mga Bag", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Mga gamit sa tubig gikan sa lain-laing mga tinubdan?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pag-inom, Pagluto, ug Panglaba", "imagePath": null},
+                            {"id": "b", "answer": "Pagdula, Pagkolor, ug Pagbasa", "imagePath": null},
+                            {"id": "c", "answer": "Pagkatulog, Pag-istorya, ug Paglakaw", "imagePath": null},
+                            {"id": "d", "answer": "Pagkaon, Pagkanta, ug Pagsayaw", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Unsa ka importante ang tubig sa kalikopan?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Gihugawan niini ang tanan", "imagePath": null},
+                            {"id": "b", "answer": "Nakatabang kini sa mga tanom, mananap, ug mga tawo nga mabuhi", "imagePath": null},
+                            {"id": "c", "answer": "Nahimo kining mga dulaan", "imagePath": null},
+                            {"id": "d", "answer": "Gipawala niini ang yuta", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 2,
+                "title": "Panahon",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Unsaon nimo paggamit ang mga instrumento sa panahon?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Pinaagi sa pagtan-aw niini gikan sa layo", "imagePath": null},
+                            {"id": "b", "answer": "Pinaagi sa paggamit sa matag himan alang sa piho nga katuyoan niini, sama sa thermometer alang sa temperatura ug rain gauge alang sa ulan", "imagePath": null},
+                            {"id": "c", "answer": "Pinaagi sa pagtag-an sa panahon nga dili mogamit niini", "imagePath": null},
+                            {"id": "d", "answer": "Pinaagi sa pagbutang niini sa sulod sa balay layo sa kahayag sa adlaw ug hangin", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Parehas ba ang kahimtang sa panahon sa lain-laing mga lugar ug lain-laing mga oras?",
+                        "audio": null,
+                        "correctChoice": "b",
+                        "choices": [
+                            {"id": "a", "answer": "Oo, tungod kay ang Yuta nakadawat og parehas nga kahayag sa adlaw bisan asa", "imagePath": null},
+                            {"id": "b", "answer": "Dili, tungod kay ang panahon apektado sa lokasyon, oras, ug mga hinungdan sa kalikopan", "imagePath": null},
+                            {"id": "c", "answer": "Oo, tungod kay ang tanang lugar adunay parehas nga temperatura sa buntag", "imagePath": null},
+                            {"id": "d", "answer": "Dili, apan sa panahon lang sa ting-init", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsa ang labing luwas nga pag-amping sa panahon sa lain-laing mga kondisyon sa panahon?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pagsul-ob og nipis nga sinina sa init nga mga adlaw ug pagpangita og landong", "imagePath": null},
+                            {"id": "b", "answer": "Pag-adto sa mga hawan nga lugar panahon sa mga thunderstorms", "imagePath": null},
+                            {"id": "c", "answer": "Paglangoy sa mga suba panahon sa kusog nga ulan", "imagePath": null},
+                            {"id": "d", "answer": "Pagpabilin sa gawas panahon sa kusog nga hangin aron maobserbahan ang panahon", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Unsa ang importansya sa kainit ug kahayag sa Adlaw?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Naghatag kini og enerhiya aron makahimo og pagkaon ang mga tanom ug nagpainit sa Yuta", "imagePath": null},
+                            {"id": "b", "answer": "Gipaspasan niini ang pagtuyok sa Yuta", "imagePath": null},
+                            {"id": "c", "answer": "Gi-usab niini ang kolor sa langit sa permanente", "imagePath": null},
+                            {"id": "d", "answer": "Gitugotan niini ang Bulan nga makahimo sa iyang kaugalingong kahayag", "imagePath": null}
+                        ]
+                    }
+                ]
+            },
+            {
+                "chapter": 3,
+                "title": "Ang Adlaw",
+                "questions": [
+                    {
+                        "itemNumber": 1,
+                        "question": "Unsa ang pipila ka mga kamatuoran bahin sa Kahayag ug mga Anino?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Ang mga anino mabuhat kung ang kahayag mababagan", "imagePath": null},
+                            {"id": "b", "answer": "Ang mga anino makita lang sa gabii", "imagePath": null},
+                            {"id": "c", "answer": "Ang kahayag makabawog libot sa mga bungbong", "imagePath": null},
+                            {"id": "d", "answer": "Ang mga anino makapawala sa mga butang", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 2,
+                        "question": "Unsa ang Papel sa Adlaw sa Siklo sa Tubig?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Nagpainit sa tubig aron kini mahimong alisngaw", "imagePath": null},
+                            {"id": "b", "answer": "Nagpabugnaw sa tubig aron mahimong yelo", "imagePath": null},
+                            {"id": "c", "answer": "Nagdala og ulan gikan sa mga panganod", "imagePath": null},
+                            {"id": "d", "answer": "Nagpadako sa dagat", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 3,
+                        "question": "Unsa ang mga epekto sa Kainit ug Kahayag sa Adlaw?",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Nakatabang sa pagtubo sa mga tanom ug nagpainit sa Yuta", "imagePath": null},
+                            {"id": "b", "answer": "Naghimo sa mga bato nga pagkaon", "imagePath": null},
+                            {"id": "c", "answer": "Nagpataas sa oras sa kagabhion", "imagePath": null},
+                            {"id": "d", "answer": "Nagpahunong sa ulan hangtod sa hangtod", "imagePath": null}
+                        ]
+                    },
+                    {
+                        "itemNumber": 4,
+                        "question": "Mga Pamaagi sa Pag-amping sa Kaluwasan sa mga Epekto sa Adlaw",
+                        "audio": null,
+                        "correctChoice": "a",
+                        "choices": [
+                            {"id": "a", "answer": "Pagsul-ob og kalo ug pag-inom og tubig", "imagePath": null},
+                            {"id": "b", "answer": "Direktang pagtan-aw sa Adlaw", "imagePath": null},
+                            {"id": "c", "answer": "Pagdula sa gawas sa udto nga walay landong", "imagePath": null},
+                            {"id": "d", "answer": "Pagsul-ob og baga nga dyaket sa init nga panahon", "imagePath": null}
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -48,7 +48,7 @@ class Enemy extends SpriteAnimationComponent
     // by 1, if enemy has gone past left end of the screen.
     if (position.x < -enemyData.textureSize.x) {
       removeFromParent();
-      game.playerData.currentScore += 1;
+      // game.playerData.currentScore += 1;
     }
 
     super.update(dt);

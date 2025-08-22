@@ -1,98 +1,138 @@
+import 'package:dino_run/game/dino_run.dart';
+import 'package:dino_run/models/player_data.dart';
+import 'package:dino_run/widgets/main_menu.dart';
+import 'package:dino_run/widgets/pause_menu.dart';
 import 'package:flame_rive/flame_rive.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
-class ShopScreen extends StatelessWidget {
+class ShopScreen extends StatefulWidget {
+  static const id = 'ShopScreen';
+
   const ShopScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Column(
-          children: [
-            _ShopHeader(),
-            Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: _PlayerView(),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: _ItemsView(),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  State<ShopScreen> createState() => _ShopScreenState();
 }
 
-class _ShopHeader extends StatelessWidget {
-  const _ShopHeader();
+class _ShopScreenState extends State<ShopScreen> {
+  List<String> characterNames = [
+    'Character 1',
+    'Character 2',
+    'Character 2',
+  ];
+
+  int selectedCharacter = 0;
+
+  // 🔹 Rive Variables moved here
+  StateMachineController? _controller;
+  SMIInput<double>? _headItem;
+  SMIInput<double>? _eyeItem;
+  SMIInput<double>? _shirtItem;
+
+  double head = 0;
+  double eye = 0;
+  double shirt = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    eye = context.read<PlayerData>().eyeItem;
+    head = context.read<PlayerData>().headItem;
+    shirt = context.read<PlayerData>().shirtItem;
+  }
+
+  void _onRiveInit(Artboard artboard) async {
+    _controller = StateMachineController.fromArtboard(artboard, 'State Machine');
+    if (_controller != null) {
+      artboard.addController(_controller!);
+      _headItem = _controller!.findInput<double>('head_choices');
+      _eyeItem = _controller!.findInput<double>('eye_choices');
+      _shirtItem = _controller!.findInput<double>('shirt_print_choices');
+      _headItem?.value = head;
+      _eyeItem?.value = eye;
+      _shirtItem?.value = shirt;
+    }
+
+    print('init called');
+  }
+
+  void _switchItem(String item, double num) {
+    setState(() {
+      if (item == 'head') {
+        _headItem?.value = num + 1;
+        if ((_headItem?.value ?? 0) > 10) _headItem?.value = 0;
+      } else if (item == 'eye') {
+        _eyeItem?.value = num + 1;
+        if ((_eyeItem?.value ?? 0) > 10) _eyeItem?.value = 0;
+      } else if (item == 'shirt') {
+        _shirtItem?.value = num + 1;
+        if ((_shirtItem?.value ?? 0) > 10) _shirtItem?.value = 0;
+      }
+    });
+  }
+
+  swapCharacter(String direction) {
+    head = _headItem?.value ?? 0;
+    eye = _eyeItem?.value ?? 0;
+    shirt = _shirtItem?.value ?? 0;
+
+    if (direction == 'LEFT') {
+      selectedCharacter = (selectedCharacter - 1 + characterNames.length) % characterNames.length;
+    } else if (direction == 'RIGHT') {
+      selectedCharacter = (selectedCharacter + 1) % characterNames.length;
+    }
+
+    print('HEad item - ${_headItem?.value}');
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 75,
-      color: Colors.amber,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Scaffold(
+      body: Column(
         children: [
-          BackButton(),
-          Row(
-            children: [
-              Icon(Icons.star),
-              Text('999999'),
-            ],
-          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: _PlayerView(
+                    onRiveInit: _onRiveInit,
+                    characterName: characterNames[selectedCharacter],
+                    swapCharacter: swapCharacter,
+                    // switchItem: _switchItem,
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: _ItemsView(
+                    switchItem: _switchItem,
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
   }
 }
 
-class _PlayerView extends StatefulWidget {
-  const _PlayerView();
+// 🔹 PlayerView now just consumes the callbacks
+class _PlayerView extends StatelessWidget {
+  final void Function(Artboard) onRiveInit;
+  final String characterName;
+  final Function(String direction) swapCharacter;
+  // final void Function(double) switchItem;
 
-  @override
-  State<_PlayerView> createState() => __PlayerViewState();
-}
-
-class __PlayerViewState extends State<_PlayerView> {
-  // Controller for the Rive animation
-  StateMachineController? _controller;
-
-  // Input for the state machine
-  SMIInput<double>? _headItem;
-  SMIInput<bool>? _jump;
-
-  void _onRiveInit(Artboard artboard) {
-    // Get the state machine controller
-    _controller = StateMachineController.fromArtboard(artboard, 'State Machine');
-    if (_controller != null) {
-      artboard.addController(_controller!);
-      // Get the boolean input from the state machine
-      _headItem = _controller!.findInput<double>('head_choices');
-      _jump = _controller!.findInput<bool>('Jump');
-      // Set the initial value
-      _headItem?.value = 0;
-      _jump?.value = false;
-    }
-  }
-
-  void _switchItem(double num) {
-    setState(() {
-      _headItem!.value = _headItem!.value + 1;
-      if (_headItem!.value > 5) _headItem!.value = 0;
-      _jump?.value = true;
-    });
-  }
+  const _PlayerView({
+    required this.onRiveInit,
+    this.characterName = 'Character 1',
+    required this.swapCharacter,
+    // required this.switchItem,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -100,24 +140,37 @@ class __PlayerViewState extends State<_PlayerView> {
       color: Colors.green,
       child: Stack(
         children: [
+          _ShopHeader(),
           Center(
-            child: InkWell(
-              onTap: () {
-                _switchItem(1);
-              },
+            child: Padding(
+              padding: EdgeInsetsGeometry.all(74),
               child: RiveAnimation.asset(
-                'assets/rive/running_and_jumping (3).riv',
-                artboard: 'Character 1',
+                'assets/rive/running_and_jumping (9).riv',
+                artboard: characterName,
                 stateMachines: ['State Machine'],
-                onInit: _onRiveInit,
+                onInit: onRiveInit,
                 fit: BoxFit.contain,
+                placeHolder: const CircularProgressIndicator(),
               ),
             ),
           ),
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Icon(Icons.arrow_back), Icon(Icons.arrow_forward)],
+              children: [
+                InkWell(
+                  onTap: () {
+                    swapCharacter('LEFT');
+                  },
+                  child: Icon(Icons.arrow_back),
+                ),
+                InkWell(
+                  onTap: () {
+                    swapCharacter('RIGHT');
+                  },
+                  child: Icon(Icons.arrow_forward),
+                ),
+              ],
             ),
           )
         ],
@@ -127,7 +180,8 @@ class __PlayerViewState extends State<_PlayerView> {
 }
 
 class _ItemsView extends StatelessWidget {
-  const _ItemsView();
+  final void Function(String item, double num) switchItem;
+  const _ItemsView({required this.switchItem});
 
   @override
   Widget build(BuildContext context) {
@@ -151,12 +205,15 @@ class _ItemsView extends StatelessWidget {
               height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        switchItem('head', double.parse('$index'));
+                        context.read<PlayerData>().setHeadItem = double.parse('$index');
+                      },
                       child: Container(
                         height: 150,
                         width: 150,
@@ -181,14 +238,20 @@ class _ItemsView extends StatelessWidget {
               height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Container(
-                      height: 150,
-                      width: 150,
-                      color: Colors.amber,
+                  return InkWell(
+                    onTap: () {
+                      switchItem('eye', double.parse('$index'));
+                      context.read<PlayerData>().setEyeItem = double.parse('$index');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Container(
+                        height: 150,
+                        width: 150,
+                        color: Colors.amber,
+                      ),
                     ),
                   );
                 },
@@ -208,14 +271,20 @@ class _ItemsView extends StatelessWidget {
               height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Container(
-                      height: 150,
-                      width: 150,
-                      color: Colors.amber,
+                  return InkWell(
+                    onTap: () {
+                      switchItem('shirt', double.parse('$index'));
+                      context.read<PlayerData>().setShirtItem = double.parse('$index');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Container(
+                        height: 150,
+                        width: 150,
+                        color: Colors.amber,
+                      ),
                     ),
                   );
                 },
@@ -264,6 +333,36 @@ class _ItemsView extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _ShopHeader extends StatelessWidget {
+  const _ShopHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    final stars = context.watch<PlayerData>().shopStar;
+
+    return Container(
+      height: 75,
+      color: Colors.amber,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          BackButton(
+            onPressed: () {
+              context.go('/');
+            },
+          ),
+          Row(
+            children: [
+              Icon(Icons.star),
+              Text('$stars'), // TODO - display here the current stars own by the player
+            ],
+          ),
+        ],
       ),
     );
   }
