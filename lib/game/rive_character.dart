@@ -129,7 +129,7 @@ class SkillsAnimationComponent extends RiveComponent with CollisionCallbacks, Ha
       // Jump animation of rive character
       _jump?.value = true;
       // current = DinoAnimationStates.idle;
-      // AudioManager.instance.playSfx('jump14.wav');
+      AudioManager.instance.playSfx('jump14.wav');
     }
   }
 

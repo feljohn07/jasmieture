@@ -1,4 +1,5 @@
 import 'package:dino_run/models/player_data.dart';
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,10 @@ class ChaptersScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
                 onTap: () {
-                  context.read<PlayerData>().setChapter(index);
+                  // context.read<PlayerData>().setChapter(index);
+                  context.read<QuizData>().setChapter(index + 1);
+                  context.read<QuizData>().resetTimer();
+
                   context.go('/game');
                 },
                 child: Container(

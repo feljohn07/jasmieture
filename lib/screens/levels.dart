@@ -1,3 +1,4 @@
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:easy_localization/easy_localization.dart' hide TextDirection;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -51,17 +52,18 @@ class LevelScreen extends StatelessWidget {
                         child: Icon(Icons.shop),
                       ),
                       InkWell(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return Dialog(
-                                  child: SettingsMenu(),
-                                );
-                              },
-                            );
-                          },
-                          child: Icon(Icons.settings)),
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return Dialog(
+                                child: SettingsMenu(),
+                              );
+                            },
+                          );
+                        },
+                        child: Icon(Icons.settings),
+                      ),
                       Icon(Icons.translate),
                     ],
                   ),
@@ -85,6 +87,7 @@ class LevelScreen extends StatelessWidget {
                         return InkWell(
                           onTap: () {
                             context.read<PlayerData>().setLevel(index);
+                            context.read<QuizData>().setLevel(index + 1);
                             context.go('/chapters');
                           },
                           child: Padding(

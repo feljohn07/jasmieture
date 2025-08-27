@@ -1,5 +1,6 @@
 import 'package:dino_run/game/rive_character.dart';
 import 'package:dino_run/main.dart';
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:dino_run/widgets/main_menu.dart';
 import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flame/events.dart';
@@ -28,8 +29,9 @@ import 'package:flame_rive/flame_rive.dart';
 class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, KeyboardEvents {
   final Settings settings;
   final PlayerData playerData;
+  final QuizData quizData;
 
-  DinoRun({super.camera, required this.playerData, required this.settings});
+  DinoRun({super.camera, required this.playerData, required this.settings, required this.quizData});
 
   // List of all the image assets.
   static const _imageAssets = [
@@ -43,6 +45,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     'parallax/plx-4.png',
     'parallax/plx-5.png',
     'parallax/plx-6.png',
+    // 'parallax/1.png',
+    // 'parallax/2.png',
+    // 'parallax/3.png',
+    // 'parallax/4.png',
   ];
 
   // List of all the audio assets.
@@ -70,6 +76,8 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
   // This method get called while flame is preparing this game.
   @override
   Future<void> onLoad() async {
+    await quizData.initialize(quizData.level, quizData.chapter);
+
     //
     // TODO - TESTING on passing buildContext inside game component
     //
@@ -115,8 +123,12 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
         ParallaxImageData('parallax/plx-4.png'),
         // ParallaxImageData('parallax/plx-5.png'),
         ParallaxImageData('parallax/plx-custom.png'),
-
         ParallaxImageData('parallax/plx-6.png'),
+
+        // ParallaxImageData('parallax/1.png'),
+        // ParallaxImageData('parallax/2.png'),
+        // ParallaxImageData('parallax/3.png'),
+        // ParallaxImageData('parallax/4.png'),
       ],
       baseVelocity: Vector2(10, 0),
       velocityMultiplierDelta: Vector2(1.4, 0),
@@ -262,9 +274,13 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
       case AppLifecycleState.resumed:
         // On resume, if active overlay is not PauseMenu,
         // resume the engine (lets the parallax effect play).
-        if (!(overlays.isActive(PauseMenu.id)) && !(overlays.isActive(GameOverMenu.id))) {
+        if (!(overlays.isActive(PauseMenu.id)) &&
+            !(overlays.isActive(GameOverMenu.id)) &&
+            !(overlays.isActive(QuestionOverlay.id))) {
           resumeEngine();
         }
+        // quizData.startTimer();
+
         break;
       case AppLifecycleState.paused:
       case AppLifecycleState.detached:
@@ -276,8 +292,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
           overlays.remove(Hud.id);
           overlays.add(PauseMenu.id);
         }
-        AudioManager.instance.pauseBgm(); // TODO: testing of pausing bgm
+        AudioManager.instance.pauseBgm();
         pauseEngine();
+        // quizData.pauseTimer();
+
         break;
     }
     super.lifecycleStateChange(state);

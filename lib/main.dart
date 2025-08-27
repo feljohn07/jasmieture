@@ -1,6 +1,9 @@
+import 'dart:convert';
+
+import 'package:dino_run/repositories/implementations/hive_lesson_repository.dart';
 import 'package:dino_run/routes/routes.dart';
-import 'package:dino_run/screens/levels.dart';
-import 'package:dino_run/screens/shop.dart';
+import 'package:dino_run/utils/level_parser.dart';
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flame/camera.dart';
 import 'package:flutter/foundation.dart';
@@ -19,9 +22,10 @@ import 'models/player_data.dart';
 import 'widgets/pause_menu.dart';
 import 'widgets/settings_menu.dart';
 import 'widgets/game_over_menu.dart';
-import 'screens/shop.dart';
 
 import 'package:easy_localization/easy_localization.dart';
+
+final lessonRepository = HiveLessonRepository();
 
 Future<void> main() async {
   // Ensures that all bindings are initialized
@@ -29,13 +33,11 @@ Future<void> main() async {
   // dealing with platform channels.
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight
-  ]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
 
   await EasyLocalization.ensureInitialized();
 
+  await Hive.deleteFromDisk();
   await initHive();
 
   /// This method reads [PlayerData] from the hive box.
@@ -75,21 +77,20 @@ Future<void> main() async {
   // Initializes hive and register the adapters.
   final playerData = await readPlayerData();
   final settings = await readSettings();
+  final quizData = QuizData(lessonRepository);
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => playerData),
+        ChangeNotifierProvider(create: (_) => quizData),
         ChangeNotifierProvider(create: (_) => settings),
       ],
       child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('fil')],
         path: 'assets/translations', // <-- JSON files
         fallbackLocale: const Locale('en'),
-        child: DinoRunApp(
-          playerData: playerData,
-          settings: settings,
-        ),
+        child: DinoRunApp(),
       ),
     ),
   );
@@ -108,11 +109,23 @@ Future<void> initHive() async {
 
   Hive.registerAdapter<PlayerData>(PlayerDataAdapter());
   Hive.registerAdapter<Settings>(SettingsAdapter());
+  
+  await lessonRepository.init();
+  await initializeQuestions();
+}
+
+Future<void> initializeQuestions() async {
+  String jsonString = await rootBundle.loadString('assets/json/questions.json');
+  await lessonRepository.saveLevels(
+    LevelParser.fromJson(jsonDecode(jsonString)),
+  );
+
+  print((await lessonRepository.getAllLevels()).length);
 }
 
 // The main widget for this game.
 class DinoRunApp extends StatelessWidget {
-  const DinoRunApp({super.key, required PlayerData playerData, required Settings settings});
+  const DinoRunApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -176,6 +189,7 @@ class GameScreen extends StatelessWidget {
         gameFactory: () => DinoRun(
           playerData: Provider.of<PlayerData>(context, listen: false),
           settings: Provider.of<Settings>(context, listen: false),
+          quizData: Provider.of<QuizData>(context, listen: false),
           // Use a fixed resolution camera to avoid manually
           // scaling and handling different screen sizes.
           camera: CameraComponent.withFixedResolution(
