@@ -39,18 +39,25 @@ class HiveLessonRepository implements LessonRepository {
   }
 
   @override
-  Future<Chapter?> getChapter(int levelNumber, int chapterNumber) async {
+  Future<List<Chapter>> getChapters(int levelNumber) async {
+    final level = await getLevel(levelNumber);
+    if (level == null) return [];
+
+    return level.chapters;
+  }
+
+  @override
+  Future<List<Question>> getQuestions(int levelNumber, int chapterNumber) async {
+    final chapter = await _getChapter(levelNumber, chapterNumber);
+    return chapter?.questions ?? [];
+  }
+
+  Future<Chapter?> _getChapter(int levelNumber, int chapterNumber) async {
     final level = await getLevel(levelNumber);
     if (level == null) return null;
 
     return level.chapters.firstWhereOrNull(
       (chap) => chap.chapter == chapterNumber,
     );
-  }
-
-  @override
-  Future<List<Question>> getQuestions(int levelNumber, int chapterNumber) async {
-    final chapter = await getChapter(levelNumber, chapterNumber);
-    return chapter?.questions ?? [];
   }
 }

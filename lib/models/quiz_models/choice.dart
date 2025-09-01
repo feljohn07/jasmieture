@@ -9,5 +9,8 @@ class Choice extends HiveObject {
   @HiveField(1)
   String choice;
 
-  Choice({required this.choiceId, required this.choice});
+  @HiveField(2)
+  String imagePath;
+
+  Choice({required this.choiceId, required this.choice, required this.imagePath});
 }

@@ -19,17 +19,20 @@ class LevelAdapter extends TypeAdapter<Level> {
     return Level(
       level: fields[0] as int,
       chapters: (fields[1] as List).cast<Chapter>(),
+      title: fields[2] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.level)
       ..writeByte(1)
-      ..write(obj.chapters);
+      ..write(obj.chapters)
+      ..writeByte(2)
+      ..write(obj.title);
   }
 
   @override

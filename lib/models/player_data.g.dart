@@ -21,13 +21,19 @@ class PlayerDataAdapter extends TypeAdapter<PlayerData> {
       ..shopStar = fields[2] as int
       ..headItem = fields[3] as double
       ..eyeItem = fields[4] as double
-      ..shirtItem = fields[5] as double;
+      ..shirtItem = fields[5] as double
+      ..character = fields[6] as String
+      ..firstName = fields[7] as String
+      ..middleName = fields[8] as String
+      ..lastName = fields[9] as String
+      ..age = fields[10] as String
+      ..section = fields[11] as String;
   }
 
   @override
   void write(BinaryWriter writer, PlayerData obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(11)
       ..writeByte(1)
       ..write(obj.highScore)
       ..writeByte(2)
@@ -37,7 +43,19 @@ class PlayerDataAdapter extends TypeAdapter<PlayerData> {
       ..writeByte(4)
       ..write(obj.eyeItem)
       ..writeByte(5)
-      ..write(obj.shirtItem);
+      ..write(obj.shirtItem)
+      ..writeByte(6)
+      ..write(obj.character)
+      ..writeByte(7)
+      ..write(obj.firstName)
+      ..writeByte(8)
+      ..write(obj.middleName)
+      ..writeByte(9)
+      ..write(obj.lastName)
+      ..writeByte(10)
+      ..write(obj.age)
+      ..writeByte(11)
+      ..write(obj.section);
   }
 
   @override

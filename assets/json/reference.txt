@@ -1,0 +1,75 @@
+Question
+
+{
+    "questionNumber": ,
+    "question": "",
+    "correctChoice": "",
+    "audio": "path",
+    "choices": [
+        {
+            "choiceId": "a",
+            "choice": "",
+            "imagePath": ""
+        },
+        {
+            "choiceId": "b",
+            "choice": "",
+            "imagePath": ""
+        },
+        {
+            "choiceId": "c",
+            "choice": "",
+            "imagePath": ""
+        },
+        {
+            "choiceId": "d",
+            "choice": "",
+            "imagePath": ""
+        }
+    ]
+},
+
+new Chapter
+
+[
+    {
+        "level": ,
+        "title": "",
+        "chapters": [
+            {
+                "chapter": ,
+                "title": "",
+                "questions": [
+                    {
+                        "questionNumber": ,
+                        "question": "",
+                        "correctChoice": "",
+                        "audio": "path",
+                        "choices": [
+                            {
+                                "choiceId": "a",
+                                "choice": "",
+                                "imagePath": ""
+                            },
+                            {
+                                "choiceId": "b",
+                                "choice": "",
+                                "imagePath": ""
+                            },
+                            {
+                                "choiceId": "c",
+                                "choice": "",
+                                "imagePath": ""
+                            },
+                            {
+                                "choiceId": "d",
+                                "choice": "",
+                                "imagePath": ""
+                            }
+                        ]
+                    },
+                ]
+            },
+        ]
+    }
+]

@@ -29,6 +29,7 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
 
   int _currentScore = 0;
 
+  // TODO - delete this
   int get currentScore => _currentScore;
   set currentScore(int value) {
     _currentScore = value;
@@ -85,5 +86,32 @@ class PlayerData extends ChangeNotifier with HiveObjectMixin {
     save();
   }
 
-  double character = 0;
+  // List<String> characters = ['Character 1', 'Character 2', 'Character 3', 'Character 4', 'Character 5', 'Character 6'];
+
+  @HiveField(6)
+  String character = 'Character 1';
+
+  void setCharacter(String value) {
+    print('character switched = ${value}');
+    character = value;
+    notifyListeners();
+    save();
+  }
+  // Player Details
+
+  // firstName
+  @HiveField(7)
+  String firstName = '';
+  // middleName
+  @HiveField(8)
+  String middleName = '';
+  // lastName
+  @HiveField(9)
+  String lastName = '';
+  // age
+  @HiveField(10)
+  String age = '';
+  // section
+  @HiveField(11)
+  String section = '';
 }

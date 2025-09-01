@@ -1,18 +1,14 @@
 import 'package:dino_run/game/rive_character.dart';
-import 'package:dino_run/main.dart';
 import 'package:dino_run/view_models.dart/quiz_data.dart';
-import 'package:dino_run/widgets/main_menu.dart';
 import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flame/events.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
 import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/components.dart';
-import 'package:provider/provider.dart';
 
 import '/game/dino.dart';
 import '/widgets/hud.dart';
@@ -88,8 +84,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     //   listen: false,
     // );
 
-    characterArtboard =
-        await loadArtboard(RiveFile.asset('assets/rive/running_and_jumping (4).riv'), artboardName: 'Character 1');
+    print('${playerData.character} -===');
+
+    characterArtboard = await loadArtboard(RiveFile.asset('assets/rive/running_and_jumping (9).riv'),
+        artboardName: playerData.character);
 
     // Makes the game full screen and landscape only.
     await Flame.device.fullScreen();
@@ -122,13 +120,15 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
         ParallaxImageData('parallax/plx-3.png'),
         ParallaxImageData('parallax/plx-4.png'),
         // ParallaxImageData('parallax/plx-5.png'),
-        ParallaxImageData('parallax/plx-custom.png'),
+        ParallaxImageData('parallax/001.png'),
+        // ParallaxImageData('parallax/plx-custom.png'),
         ParallaxImageData('parallax/plx-6.png'),
 
         // ParallaxImageData('parallax/1.png'),
         // ParallaxImageData('parallax/2.png'),
         // ParallaxImageData('parallax/3.png'),
         // ParallaxImageData('parallax/4.png'),
+        // ParallaxImageData('parallax/plx-6.png'),
       ],
       baseVelocity: Vector2(10, 0),
       velocityMultiplierDelta: Vector2(1.4, 0),
@@ -187,7 +187,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
   @override
   void update(double dt) {
     // If number of lives is 0 or less, game is over.
-    if (playerData.lives <= 0) {
+    if (quizData.lives <= 0) {
       overlays.add(GameOverMenu.id);
       overlays.remove(Hud.id);
       pauseEngine();
@@ -235,39 +235,6 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     return KeyEventResult.ignored;
   }
 
-  // /// This method reads [PlayerData] from the hive box.
-  // Future<PlayerData> _readPlayerData() async {
-  //   final playerDataBox = await Hive.openBox<PlayerData>(
-  //     'DinoRun.PlayerDataBox',
-  //   );
-
-  //   final playerData = playerDataBox.get('DinoRun.PlayerData');
-
-  //   // If data is null, this is probably a fresh launch of the game.
-  //   if (playerData == null) {
-  //     // In such cases store default values in hive.
-  //     await playerDataBox.put('DinoRun.PlayerData', PlayerData());
-  //   }
-
-  //   // Now it is safe to return the stored value.
-  //   return playerDataBox.get('DinoRun.PlayerData')!;
-  // }
-
-  // /// This method reads [Settings] from the hive box.
-  // Future<Settings> _readSettings() async {
-  //   final settingsBox = await Hive.openBox<Settings>('DinoRun.SettingsBox');
-  //   final settings = settingsBox.get('DinoRun.Settings');
-
-  //   // If data is null, this is probably a fresh launch of the game.
-  //   if (settings == null) {
-  //     // In such cases store default values in hive.
-  //     await settingsBox.put('DinoRun.Settings', Settings(bgm: true, sfx: true));
-  //   }
-
-  //   // Now it is safe to return the stored value.
-  //   return settingsBox.get('DinoRun.Settings')!;
-  // }
-
   @override
   void lifecycleStateChange(AppLifecycleState state) {
     switch (state) {
@@ -290,7 +257,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
         // before pausing the game.
         if (overlays.isActive(Hud.id)) {
           overlays.remove(Hud.id);
-          overlays.add(PauseMenu.id);
+
+          if (!overlays.isActive(GameOverMenu.id)) {
+            overlays.add(PauseMenu.id);
+          }
         }
         AudioManager.instance.pauseBgm();
         pauseEngine();

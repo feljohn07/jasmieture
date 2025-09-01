@@ -41,6 +41,7 @@ class _ShopScreenState extends State<ShopScreen> {
     eye = context.read<PlayerData>().eyeItem;
     head = context.read<PlayerData>().headItem;
     shirt = context.read<PlayerData>().shirtItem;
+    selectedCharacter = characterNames.indexOf(context.read<PlayerData>().character);
   }
 
   void _onRiveInit(Artboard artboard) async {
@@ -84,7 +85,10 @@ class _ShopScreenState extends State<ShopScreen> {
       selectedCharacter = (selectedCharacter + 1) % characterNames.length;
     }
 
-    print('HEad item - ${_headItem?.value}');
+    context.read<PlayerData>().setCharacter(characterNames[selectedCharacter]);
+
+    // print('HEad item - ${_headItem?.value}');
+    print('shop - ${characterNames[selectedCharacter]}');
     setState(() {});
   }
 
@@ -129,13 +133,14 @@ class _PlayerView extends StatelessWidget {
 
   const _PlayerView({
     required this.onRiveInit,
-    this.characterName = 'Character 1',
+    this.characterName = 'Character ',
     required this.swapCharacter,
     // required this.switchItem,
   });
 
   @override
   Widget build(BuildContext context) {
+    // print(characterName);
     return Container(
       color: Colors.green,
       child: Stack(
@@ -161,12 +166,14 @@ class _PlayerView extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     swapCharacter('LEFT');
+                    // context.read<PlayerData>().setCharacter(characterName);
                   },
                   child: Icon(Icons.arrow_back),
                 ),
                 InkWell(
                   onTap: () {
                     swapCharacter('RIGHT');
+                    // context.read<PlayerData>().setCharacter(characterName);
                   },
                   child: Icon(Icons.arrow_forward),
                 ),

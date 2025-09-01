@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:dino_run/models/quiz_models/choice.dart';
 import 'package:dino_run/view_models.dart/quiz_data.dart';
+import 'package:dino_run/widgets/game_over_menu.dart';
 import 'package:dino_run/widgets/pause_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,15 +22,11 @@ class QuestionOverlay extends StatefulWidget {
 }
 
 class _QuestionOverlayState extends State<QuestionOverlay> {
-  late Timer _timer;
-  int _elapsedSeconds = 0;
-
   List<Widget> choices = [];
 
   @override
   void initState() {
     super.initState();
-    // _startTimer();
 
     final timerProvider = Provider.of<QuizData>(context, listen: false);
     timerProvider.startTimer();
@@ -44,19 +40,17 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
             await context.read<QuizData>().check(choice.choiceId, (isCorrect, gameEnded) {
               if (gameEnded) {
                 widget.game.overlays.remove(QuestionOverlay.id);
-                widget.game.overlays.add(PauseMenu.id);
+                widget.game.overlays.add(GameOverMenu.id);
                 widget.game.pauseEngine();
                 timerProvider.pauseTimer();
                 return;
               }
 
-              if (isCorrect) {
-                widget.game.overlays.remove(QuestionOverlay.id);
-                widget.game.overlays.add(Hud.id);
-                widget.game.resumeEngine();
-                AudioManager.instance.resumeBgm();
-                timerProvider.pauseTimer();
-              }
+              widget.game.overlays.remove(QuestionOverlay.id);
+              widget.game.overlays.add(Hud.id);
+              widget.game.resumeEngine();
+              AudioManager.instance.resumeBgm();
+              timerProvider.pauseTimer();
             });
           },
           child: Text(
@@ -140,8 +134,8 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
                         );
                       },
                     ),
-                    const Text(
-                      'Question N',
+                    Text(
+                      'Question ${context.watch<QuizData>().remainingQuestions} /  ${context.watch<QuizData>().totalQuestions}',
                       style: TextStyle(color: Colors.white),
                     ),
                     Text(

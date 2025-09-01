@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:dino_run/models/quiz_models/chapter.dart';
+import 'package:dino_run/models/quiz_models/level.dart';
 import 'package:flutter/material.dart';
 import 'package:dino_run/models/quiz_models/question.dart';
 import 'package:dino_run/repositories/lesson_repository.dart';
@@ -12,6 +14,16 @@ class QuizData extends ChangeNotifier {
   int level = 0;
   int chapter = 0;
 
+  int _lives = 5;
+  int get lives => _lives;
+
+  set lives(int value) {
+    if (value <= 5 && value >= 0) {
+      _lives = value;
+      notifyListeners();
+    }
+  }
+
   void setLevel(int level) {
     this.level = level;
     notifyListeners();
@@ -22,20 +34,29 @@ class QuizData extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<List<Level>> get levels async => await _lessonRepository.getAllLevels();
+  Future<List<Chapter>> getChapters(int level) async => _lessonRepository.getChapters(level);
+
   int score = 0;
   List<Question> questions = [];
 
-  bool isLoadingQuestions = false;
+  int totalQuestions = 0;
+  get remainingQuestions => questions.length;
 
   Future<void> initialize(int level, int chapter) async {
     // TODO -> retrieve questions from Hive (database)
     this.level = level;
     this.chapter = chapter;
 
+    score = 0;
+    _lives = 5;
+
     questions = List<Question>.from(
       await _lessonRepository.getQuestions(level, chapter),
     );
-    print(questions.length);
+
+    totalQuestions = questions.length;
+    // print(questions.length);
     notifyListeners();
   }
 
@@ -58,10 +79,20 @@ class QuizData extends ChangeNotifier {
 
     if (isCorrect) {
       questions.removeAt(0);
+      score++;
+      notifyListeners();
+    } else {
+      lives--;
     }
 
     // gameEnded = list is now empty after removal
     callback(isCorrect, questions.isEmpty);
+  }
+
+  void gameOver() {
+    // TODO
+    // calculate the score and the bonus stars based on the player's time taken to complete the game
+    // Insert
   }
 
   // --------------- Timer -------------------

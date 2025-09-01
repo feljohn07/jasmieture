@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '/widgets/hud.dart';
@@ -48,11 +50,11 @@ class GameOverMenu extends StatelessWidget {
                       'Game Over',
                       style: TextStyle(fontSize: 40, color: Colors.white),
                     ),
-                    Selector<PlayerData, int>(
-                      selector: (_, playerData) => playerData.currentScore,
+                    Selector<QuizData, int>(
+                      selector: (_, quizData) => quizData.score,
                       builder: (_, score, __) {
                         return Text(
-                          'You Score: $score',
+                          'You Score: $score + bonus',
                           style: const TextStyle(
                             fontSize: 40,
                             color: Colors.white,
@@ -60,28 +62,41 @@ class GameOverMenu extends StatelessWidget {
                         );
                       },
                     ),
-                    ElevatedButton(
-                      child: const Text(
-                        'Restart',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                      onPressed: () {
-                        game.overlays.remove(GameOverMenu.id);
-                        game.overlays.add(Hud.id);
-                        game.resumeEngine();
-                        game.reset();
-                        game.startGamePlay();
-                        AudioManager.instance.resumeBgm();
+                    Selector<QuizData, int>(
+                      selector: (_, quizData) => quizData.elapsedSeconds,
+                      builder: (_, time, __) {
+                        return Text(
+                          'Time Taken: $time sec',
+                          style: const TextStyle(
+                            fontSize: 40,
+                            color: Colors.white,
+                          ),
+                        );
                       },
                     ),
+                    // ElevatedButton(
+                    //   child: const Text(
+                    //     'Restart',
+                    //     style: TextStyle(fontSize: 30),
+                    //   ),
+                    //   onPressed: () {
+                    //     game.overlays.remove(GameOverMenu.id);
+                    //     game.overlays.add(Hud.id);
+                    //     game.resumeEngine();
+                    //     game.reset();
+                    //     game.startGamePlay();
+                    //     AudioManager.instance.resumeBgm();
+                    //   },
+                    // ),
                     ElevatedButton(
                       child: const Text('Exit', style: TextStyle(fontSize: 30)),
                       onPressed: () {
-                        game.overlays.remove(GameOverMenu.id);
-                        game.overlays.add(MainMenu.id);
-                        game.resumeEngine();
-                        game.reset();
-                        AudioManager.instance.resumeBgm();
+                        // game.overlays.remove(GameOverMenu.id);
+                        // game.overlays.add(MainMenu.id);
+                        // game.resumeEngine();
+                        // game.reset();
+                        // AudioManager.instance.resumeBgm();
+                        context.go('/');
                       },
                     ),
                   ],

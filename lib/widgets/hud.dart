@@ -1,3 +1,4 @@
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,8 +21,8 @@ class Hud extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final level = context.watch<PlayerData>().level;
-    final chapter = context.watch<PlayerData>().chapter;
+    // final score = context.watch<QuizData>().score;
+    // final level = context.watch<QuizData>().level;
 
     return ChangeNotifierProvider.value(
       value: game.playerData,
@@ -33,8 +34,8 @@ class Hud extends StatelessWidget {
           children: [
             Column(
               children: [
-                Selector<PlayerData, int>(
-                  selector: (_, playerData) => playerData.currentScore,
+                Selector<QuizData, int>(
+                  selector: (_, quizData) => quizData.score,
                   builder: (_, score, __) {
                     return Row(
                       children: [
@@ -47,15 +48,15 @@ class Hud extends StatelessWidget {
                     );
                   },
                 ),
-                Selector<PlayerData, int>(
-                  selector: (_, playerData) => playerData.highScore,
-                  builder: (_, highScore, __) {
-                    return Text(
-                      'High: $highScore ',
-                      style: const TextStyle(color: Colors.white),
-                    );
-                  },
-                ),
+                // Selector<PlayerData, int>(
+                //   selector: (_, quizData) => quizData.highScore,
+                //   builder: (_, highScore, __) {
+                //     return Text(
+                //       'High: $highScore ',
+                //       style: const TextStyle(color: Colors.white),
+                //     );
+                //   },
+                // ),
                 // Selector<PlayerData, int>(
                 //   selector: (_, playerData) => playerData.currentScore,
                 //   builder: (_, stars, __) {
@@ -65,8 +66,8 @@ class Hud extends StatelessWidget {
                 //     );
                 //   },
                 // ),
-                Selector<PlayerData, int>(
-                  selector: (_, playerData) => playerData.level,
+                Selector<QuizData, int>(
+                  selector: (_, quizData) => quizData.level,
                   builder: (_, level, __) {
                     return Text(
                       'level: $level',
@@ -74,8 +75,8 @@ class Hud extends StatelessWidget {
                     );
                   },
                 ),
-                Text('$level'),
-                Text('$chapter'),
+                // Text('$level'),
+                // Text('$chapter'),
               ],
             ),
             TextButton(
@@ -87,8 +88,8 @@ class Hud extends StatelessWidget {
               },
               child: const Icon(Icons.pause, color: Colors.white),
             ),
-            Selector<PlayerData, int>(
-              selector: (_, playerData) => playerData.lives,
+            Selector<QuizData, int>(
+              selector: (_, quizData) => quizData.lives,
               builder: (_, lives, __) {
                 return Row(
                   children: List.generate(5, (index) {

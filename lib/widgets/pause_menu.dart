@@ -63,6 +63,7 @@ class PauseMenu extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         game.overlays.remove(PauseMenu.id);
+                        game.overlays.remove(QuestionOverlay.id);
                         game.overlays.add(Hud.id);
                         game.resumeEngine();
                         AudioManager.instance.resumeBgm();
@@ -72,21 +73,21 @@ class PauseMenu extends StatelessWidget {
                         style: TextStyle(fontSize: 30),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        game.overlays.remove(PauseMenu.id);
-                        game.overlays.remove(QuestionOverlay.id);
-                        game.overlays.add(Hud.id);
-                        game.resumeEngine();
-                        game.reset();
-                        game.startGamePlay();
-                        AudioManager.instance.resumeBgm();
-                      },
-                      child: const Text(
-                        'Restart',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
+                    // ElevatedButton(
+                    //   onPressed: () {
+                    //     game.overlays.remove(PauseMenu.id);
+                    //     game.overlays.remove(QuestionOverlay.id);
+                    //     game.overlays.add(Hud.id);
+                    //     game.resumeEngine();
+                    //     game.reset();
+                    //     game.startGamePlay();
+                    //     AudioManager.instance.resumeBgm();
+                    //   },
+                    //   child: const Text(
+                    //     'Restart',
+                    //     style: TextStyle(fontSize: 30),
+                    //   ),
+                    // ),
                     ElevatedButton(
                       onPressed: () {
                         // game.overlays.remove(PauseMenu.id);

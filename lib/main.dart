@@ -37,42 +37,7 @@ Future<void> main() async {
 
   await EasyLocalization.ensureInitialized();
 
-  await Hive.deleteFromDisk();
   await initHive();
-
-  /// This method reads [PlayerData] from the hive box.
-  Future<PlayerData> readPlayerData() async {
-    // Hive.deleteBoxFromDisk('DinoRun.PlayerDataBox');
-    final playerDataBox = await Hive.openBox<PlayerData>(
-      'DinoRun.PlayerDataBox',
-    );
-
-    final playerData = playerDataBox.get('DinoRun.PlayerData');
-
-    // If data is null, this is probably a fresh launch of the game.
-    if (playerData == null) {
-      // In such cases store default values in hive.
-      await playerDataBox.put('DinoRun.PlayerData', PlayerData());
-    }
-
-    // Now it is safe to return the stored value.
-    return playerDataBox.get('DinoRun.PlayerData')!;
-  }
-
-  /// This method reads [Settings] from the hive box.
-  Future<Settings> readSettings() async {
-    final settingsBox = await Hive.openBox<Settings>('DinoRun.SettingsBox');
-    final settings = settingsBox.get('DinoRun.Settings');
-
-    // If data is null, this is probably a fresh launch of the game.
-    if (settings == null) {
-      // In such cases store default values in hive.
-      await settingsBox.put('DinoRun.Settings', Settings(bgm: true, sfx: true));
-    }
-
-    // Now it is safe to return the stored value.
-    return settingsBox.get('DinoRun.Settings')!;
-  }
 
   // Initializes hive and register the adapters.
   final playerData = await readPlayerData();
@@ -98,6 +63,40 @@ Future<void> main() async {
   // runApp(const ShopScreen());
 }
 
+/// This method reads [PlayerData] from the hive box.
+Future<PlayerData> readPlayerData() async {
+  // Hive.deleteBoxFromDisk('DinoRun.PlayerDataBox');
+  final playerDataBox = await Hive.openBox<PlayerData>(
+    'DinoRun.PlayerDataBox',
+  );
+
+  final playerData = playerDataBox.get('DinoRun.PlayerData');
+
+  // If data is null, this is probably a fresh launch of the game.
+  if (playerData == null) {
+    // In such cases store default values in hive.
+    await playerDataBox.put('DinoRun.PlayerData', PlayerData());
+  }
+
+  // Now it is safe to return the stored value.
+  return playerDataBox.get('DinoRun.PlayerData')!;
+}
+
+/// This method reads [Settings] from the hive box.
+Future<Settings> readSettings() async {
+  final settingsBox = await Hive.openBox<Settings>('DinoRun.SettingsBox');
+  final settings = settingsBox.get('DinoRun.Settings');
+
+  // If data is null, this is probably a fresh launch of the game.
+  if (settings == null) {
+    // In such cases store default values in hive.
+    await settingsBox.put('DinoRun.Settings', Settings(bgm: true, sfx: true));
+  }
+
+  // Now it is safe to return the stored value.
+  return settingsBox.get('DinoRun.Settings')!;
+}
+
 // This function will initilize hive with apps documents directory.
 // Additionally it will also register all the hive adapters.
 Future<void> initHive() async {
@@ -109,7 +108,7 @@ Future<void> initHive() async {
 
   Hive.registerAdapter<PlayerData>(PlayerDataAdapter());
   Hive.registerAdapter<Settings>(SettingsAdapter());
-  
+
   await lessonRepository.init();
   await initializeQuestions();
 }

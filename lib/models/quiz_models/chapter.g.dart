@@ -19,17 +19,20 @@ class ChapterAdapter extends TypeAdapter<Chapter> {
     return Chapter(
       chapter: fields[0] as int,
       questions: (fields[1] as List).cast<Question>(),
+      title: fields[2] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Chapter obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.chapter)
       ..writeByte(1)
-      ..write(obj.questions);
+      ..write(obj.questions)
+      ..writeByte(2)
+      ..write(obj.title);
   }
 
   @override

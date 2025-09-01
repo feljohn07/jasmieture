@@ -16,10 +16,14 @@ class Question extends HiveObject {
   @HiveField(3)
   String correctChoice;
 
+  @HiveField(4)
+  String audio;
+
   Question({
     required this.questionNumber,
     required this.question,
     required this.choices,
     required this.correctChoice,
+    required this.audio,
   });
 }

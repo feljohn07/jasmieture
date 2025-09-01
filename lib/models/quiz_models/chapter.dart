@@ -10,5 +10,15 @@ class Chapter extends HiveObject {
   @HiveField(1)
   List<Question> questions;
 
-  Chapter({required this.chapter, required this.questions});
+  // title
+  @HiveField(2)
+  String title;
+
+  // @HiveField(2)
+  // int highScore;
+
+  // @HiveField(3)
+  // int timeTakenInSeconds;
+
+  Chapter({required this.chapter, required this.questions, required this.title});
 }

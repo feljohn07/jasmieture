@@ -9,6 +9,9 @@ class Level extends HiveObject {
 
   @HiveField(1)
   List<Chapter> chapters;
+  
+  @HiveField(2)
+  String title;
 
-  Level({required this.level, required this.chapters});
+  Level({required this.level, required this.chapters, required this.title});
 }
