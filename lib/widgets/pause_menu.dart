@@ -1,5 +1,8 @@
 import 'dart:ui';
 
+import 'package:dino_run/repositories/audio_repository.dart';
+import 'package:dino_run/core/shared/colors.dart';
+import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -7,9 +10,7 @@ import 'package:provider/provider.dart';
 
 import '/widgets/hud.dart';
 import '/game/dino_run.dart';
-import '/widgets/main_menu.dart';
 import '/game/audio_manager.dart';
-import '/models/player_data.dart';
 
 // This represents the pause menu overlay.
 class PauseMenu extends StatelessWidget {
@@ -23,84 +24,81 @@ class PauseMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AudioManager.instance.playSfx(AudioSfx.swipe);
     return ChangeNotifierProvider.value(
       value: game.playerData,
       child: Center(
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            color: Colors.black.withAlpha(100),
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 20,
-                  horizontal: 100,
-                ),
-                child: Wrap(
-                  direction: Axis.vertical,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 10,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Selector<PlayerData, int>(
-                        selector: (_, playerData) => playerData.currentScore,
+          child: Container(
+            decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/Paused Menu.png'))),
+            child: Padding(
+              padding: EdgeInsets.all(14),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 100,
+                    horizontal: 100,
+                  ),
+                  child: Wrap(
+                    direction: Axis.vertical,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 10,
+                    children: [
+                      Selector<QuizData, int>(
+                        selector: (_, playerData) => playerData.score,
                         builder: (_, score, __) {
-                          return Text(
-                            'Score: $score',
-                            style: const TextStyle(
-                              fontSize: 40,
-                              color: Colors.white,
-                            ),
+                          return Row(
+                            children: [],
                           );
                         },
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        game.overlays.remove(PauseMenu.id);
-                        game.overlays.remove(QuestionOverlay.id);
-                        game.overlays.add(Hud.id);
-                        game.resumeEngine();
-                        AudioManager.instance.resumeBgm();
-                      },
-                      child: const Text(
-                        'Resume',
-                        style: TextStyle(fontSize: 30),
+                      InkWell(
+                        onTap: () {
+                          AudioManager.instance.playSfx(AudioSfx.click);
+                          game.overlays.remove(PauseMenu.id);
+                          game.overlays.remove(QuestionOverlay.id);
+                          game.overlays.add(Hud.id);
+                          game.resumeEngine();
+                          AudioManager.instance.resumeBgm();
+                        },
+                        child: Container(
+                          height: 75,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              image:
+                                  DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/plank wood.png'))),
+                          child: Center(
+                            child: const Text(
+                              'Resume',
+                              style: TextStyle(fontSize: 30, color: Colors.black),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                    // ElevatedButton(
-                    //   onPressed: () {
-                    //     game.overlays.remove(PauseMenu.id);
-                    //     game.overlays.remove(QuestionOverlay.id);
-                    //     game.overlays.add(Hud.id);
-                    //     game.resumeEngine();
-                    //     game.reset();
-                    //     game.startGamePlay();
-                    //     AudioManager.instance.resumeBgm();
-                    //   },
-                    //   child: const Text(
-                    //     'Restart',
-                    //     style: TextStyle(fontSize: 30),
-                    //   ),
-                    // ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // game.overlays.remove(PauseMenu.id);
-                        // game.overlays.remove(QuestionOverlay.id);
-                        // game.overlays.add(MainMenu.id);
-                        // game.resumeEngine();
-                        game.reset();
-                        // AudioManager.instance.resumeBgm();
-                        context.go('/');
-                      },
-                      child: const Text('Exit', style: TextStyle(fontSize: 30)),
-                    ),
-                  ],
+                      InkWell(
+                        onTap: () {
+                          game.reset();
+                          AudioManager.instance.playSfx(AudioSfx.click);
+                          context.go('/');
+                        },
+                        child: Container(
+                          height: 75,
+                          width: 200,
+                          decoration: BoxDecoration(
+                              image:
+                                  DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/plank wood.png'))),
+                          child: Center(
+                            child: const Text(
+                              'Exit',
+                              style: TextStyle(fontSize: 30, color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

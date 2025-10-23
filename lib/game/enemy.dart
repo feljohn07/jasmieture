@@ -23,11 +23,12 @@ class Enemy extends SpriteAnimationComponent
 
   @override
   void onMount() {
+    // debugMode = true;
+
     // Reduce the size of enemy as they look too
     // big compared to the dino.
     size *= 0.6;
 
-    debugMode = true;
 
     // Add a hitbox for this enemy.
     add(

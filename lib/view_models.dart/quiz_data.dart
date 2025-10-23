@@ -1,24 +1,50 @@
 import 'dart:async';
 
+import 'package:dino_run/game/audio_manager.dart';
+import 'package:dino_run/main.dart';
+import 'package:dino_run/models/game/history.dart';
 import 'package:dino_run/models/quiz_models/chapter.dart';
+import 'package:dino_run/models/quiz_models/choice.dart';
 import 'package:dino_run/models/quiz_models/level.dart';
+import 'package:dino_run/repositories/audio_repository.dart';
+import 'package:dino_run/repositories/game_history_repository.dart';
+import 'package:dino_run/repositories/settings_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:dino_run/models/quiz_models/question.dart';
 import 'package:dino_run/repositories/lesson_repository.dart';
 
 class QuizData extends ChangeNotifier {
   final LessonRepository _lessonRepository;
+  final SettingsRepository _settingsRepository;
+  final GameHistoryRepository _gameHistoryRepository;
 
-  QuizData(this._lessonRepository);
+  QuizData(this._lessonRepository, this._settingsRepository, this._gameHistoryRepository);
+
+  String get language => _settingsRepository.getSettings().language;
+  List<History> get histories => _gameHistoryRepository.all();
 
   int level = 0;
   int chapter = 0;
 
-  int _lives = 5;
+  int _lives = 3;
+  int score = 0;
   int get lives => _lives;
 
+  int get bonus {
+    if (elapsedSeconds <= 120 && elapsedSeconds >= 90) {
+      return 2;
+    } else if (elapsedSeconds <= 89 && elapsedSeconds >= 50) {
+      return 3;
+    } else if (elapsedSeconds <= 49 && elapsedSeconds >= 20) {
+      return 4;
+    } else if (elapsedSeconds <= 19 && elapsedSeconds >= 0) {
+      return 5;
+    }
+    return 0;
+  }
+
   set lives(int value) {
-    if (value <= 5 && value >= 0) {
+    if (value <= 3 && value >= 0) {
       _lives = value;
       notifyListeners();
     }
@@ -34,14 +60,13 @@ class QuizData extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<Level>> get levels async => await _lessonRepository.getAllLevels();
-  Future<List<Chapter>> getChapters(int level) async => _lessonRepository.getChapters(level);
+  List<Level> get levels => _lessonRepository.getAllLevels(language);
+  List<Chapter> get chapters => _lessonRepository.getChapters(language, level);
 
-  int score = 0;
   List<Question> questions = [];
 
   int totalQuestions = 0;
-  get remainingQuestions => questions.length;
+  int get remainingQuestions => questions.length;
 
   Future<void> initialize(int level, int chapter) async {
     // TODO -> retrieve questions from Hive (database)
@@ -49,11 +74,11 @@ class QuizData extends ChangeNotifier {
     this.chapter = chapter;
 
     score = 0;
-    _lives = 5;
+    _lives = 3;
 
     questions = List<Question>.from(
-      await _lessonRepository.getQuestions(level, chapter),
-    );
+      _lessonRepository.getQuestions(language, level, chapter),
+    ); //..shuffle();
 
     totalQuestions = questions.length;
     // print(questions.length);
@@ -61,21 +86,28 @@ class QuizData extends ChangeNotifier {
   }
 
   Question? get question {
-    // TODO -> return the latest question
+    // DONE -> return the latest question
     return questions.elementAtOrNull(0);
   }
 
-  Future<void> check(
-    String answerId,
-    Function(bool isCorrect, bool gameEnded) callback,
-  ) async {
-    if (questions.isEmpty) {
-      // No more questions left, game ended
-      callback(false, true);
-      return;
+  List<Choice> get choices {
+    List<Choice> values = question?.choices ?? [];
+    // values.shuffle();
+
+    // values.forEach((value) => print(value.choice));
+    return values;
+  }
+
+  Future<void> check(String answerId, Future<void> Function(bool isCorrect) callback) async {
+    final isCorrect = questions.first.correctChoice == answerId;
+
+    if (isCorrect) {
+      AudioManager.instance.playSfx(AudioSfx.correctAnswer);
+    } else {
+      AudioManager.instance.playSfx(AudioSfx.wrongAnswer);
     }
 
-    final isCorrect = questions.first.correctChoice == answerId;
+    await callback(isCorrect);
 
     if (isCorrect) {
       questions.removeAt(0);
@@ -84,17 +116,32 @@ class QuizData extends ChangeNotifier {
     } else {
       lives--;
     }
-
-    // gameEnded = list is now empty after removal
-    callback(isCorrect, questions.isEmpty);
   }
 
-  void gameOver() {
-    // TODO
-    // calculate the score and the bonus stars based on the player's time taken to complete the game
-    // Insert
+  void unlockNextChapter() {
+    Level level = levels.lastWhere((level) => level.level == this.level);
+    Chapter chapter = chapters.lastWhere((chapter) => chapter.chapter == this.chapter);
+
+    // meaning, it hasnt reach the last item
+    bool hasNextChapter = (chapters.indexOf(chapter) + 1) != chapters.length;
+    int currentChapterIndex = chapters.indexOf(chapter);
+
+    if (hasNextChapter) {
+      Chapter nextChapter = chapters[currentChapterIndex + 1];
+      lessonRepository.unlockChapter(nextChapter);
+    } else {
+      int currentLevelIndex = levels.indexOf(level);
+      bool hasNextLevel = (levels.indexOf(level) + 1) != levels.length;
+
+      if (hasNextLevel) {
+        Level nextLevel = levels[currentLevelIndex + 1];
+        lessonRepository.unlockLevel(nextLevel);
+        lessonRepository.unlockChapter(nextLevel.chapters[0]);
+      }
+    }
   }
 
+  /// TODO - swap to [Stopwatch] class
   // --------------- Timer -------------------
   int _elapsedSeconds = 0;
   Timer? _timer;
@@ -130,5 +177,9 @@ class QuizData extends ChangeNotifier {
   void dispose() {
     _timer?.cancel();
     super.dispose();
+  }
+
+  void storeHistory() {
+    _gameHistoryRepository.add(History(level: level, chapter: chapter, score: score, timeTaken: _elapsedSeconds));
   }
 }

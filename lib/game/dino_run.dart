@@ -1,5 +1,8 @@
 import 'package:dino_run/game/rive_character.dart';
 import 'package:dino_run/view_models.dart/quiz_data.dart';
+import 'package:dino_run/view_models.dart/rive_provider.dart';
+import 'package:dino_run/view_models.dart/shop_data.dart';
+import 'package:dino_run/widgets/game_completed_menu.dart';
 import 'package:dino_run/widgets/question_panel.dart';
 import 'package:flame/events.dart';
 import 'package:flame/flame.dart';
@@ -23,11 +26,20 @@ import 'package:flame_rive/flame_rive.dart';
 
 // This is the main flame game class.
 class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, KeyboardEvents {
-  final Settings settings;
+  final SettingsData settings;
   final PlayerData playerData;
   final QuizData quizData;
+  final ShopData shopData;
+  final RiveProvider riveProvider;
 
-  DinoRun({super.camera, required this.playerData, required this.settings, required this.quizData});
+  DinoRun({
+    super.camera,
+    required this.shopData,
+    required this.playerData,
+    required this.settings,
+    required this.quizData,
+    required this.riveProvider,
+  });
 
   // List of all the image assets.
   static const _imageAssets = [
@@ -47,13 +59,6 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     // 'parallax/4.png',
   ];
 
-  // List of all the audio assets.
-  static const _audioAssets = [
-    '8BitPlatformerLoop.wav',
-    'hurt7.wav',
-    'jump14.wav',
-  ];
-
   // late Dino _dino;
   // late Settings settings;
   // late PlayerData playerData;
@@ -69,6 +74,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
   // late BuildContext buildContext;
   // ------------------------------------------------------------
 
+  /// [RiveProvider.artboard]
   // This method get called while flame is preparing this game.
   @override
   Future<void> onLoad() async {
@@ -84,10 +90,14 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     //   listen: false,
     // );
 
-    print('${playerData.character} -===');
+    // print('${playerData.character} -===');
 
-    characterArtboard = await loadArtboard(RiveFile.asset('assets/rive/running_and_jumping (9).riv'),
-        artboardName: playerData.character);
+    // characterArtboard = await loadArtboard(RiveFile.asset('assets/rive/running_and_jumping (13).riv'),
+    //     artboardName: shopData.shop.characterSelected.riveId);
+    shopData.characterPreview = shopData.shop.characterSelected;
+    riveProvider.loadCharacterArtboard(shopData.characterPreview, shopData.shop);
+
+    characterArtboard = riveProvider.artboard!;
 
     // Makes the game full screen and landscape only.
     await Flame.device.fullScreen();
@@ -97,14 +107,11 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     // playerData = await _readPlayerData();
     // settings = await _readSettings();
 
-    print('bgm --------- ${settings.bgm}');
-
-    /// Initilize [AudioManager].
-    await AudioManager.instance.init(_audioAssets, settings);
+    print('bgm path--------- ${settings.bgmPath}');
 
     // Start playing background music. Internally takes care
     // of checking user settings.
-    AudioManager.instance.startBgm('8BitPlatformerLoop.wav');
+    if (settings.bgm) AudioManager.instance.startBgm(settings.bgmPath);
 
     // Cache all the images.
     await images.loadAll(_imageAssets);
@@ -112,24 +119,16 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     // This makes the camera look at the center of the viewport.
     camera.viewfinder.position = camera.viewport.virtualSize * 0.5;
 
+    List<String> parallax = shopData.shop.backgroundSelected.parallax;
+
     /// Create a [ParallaxComponent] and add it to game.
     final parallaxBackground = await loadParallaxComponent(
-      [
-        ParallaxImageData('parallax/plx-1.png'),
-        ParallaxImageData('parallax/plx-2.png'),
-        ParallaxImageData('parallax/plx-3.png'),
-        ParallaxImageData('parallax/plx-4.png'),
-        // ParallaxImageData('parallax/plx-5.png'),
-        ParallaxImageData('parallax/001.png'),
-        // ParallaxImageData('parallax/plx-custom.png'),
-        ParallaxImageData('parallax/plx-6.png'),
-
-        // ParallaxImageData('parallax/1.png'),
-        // ParallaxImageData('parallax/2.png'),
-        // ParallaxImageData('parallax/3.png'),
-        // ParallaxImageData('parallax/4.png'),
-        // ParallaxImageData('parallax/plx-6.png'),
-      ],
+      List.generate(
+        parallax.length,
+        (index) {
+          return ParallaxImageData('parallax/${parallax[index]}');
+        },
+      ),
       baseVelocity: Vector2(10, 0),
       velocityMultiplierDelta: Vector2(1.4, 0),
     );
@@ -141,6 +140,7 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     _runningCharacter = SkillsAnimationComponent(
       characterArtboard,
       playerData: playerData,
+      shopData: shopData,
     ); // TO-DO - Add playerData Here, to access the selected items settings - DONE
 
     startGamePlay();
@@ -154,14 +154,8 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
   ///
   void startGamePlay() async {
     _enemyManager = EnemyManager();
-
-    // world.add(_dino);
-
     world.add(_runningCharacter);
-
     world.add(_enemyManager);
-
-    // playerData.level = 2;
   }
 
   // This method remove all the actors from the game.
@@ -179,8 +173,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
     _disconnectActors();
 
     // Reset player data to inital values.
-    playerData.currentScore = 0;
-    playerData.lives = 5;
+    // playerData.currentScore = 0;
+    // playerData.lives = 5;
+    quizData.score = 0;
+    quizData.lives = 5;
   }
 
   // This method gets called for each tick/frame of the game.
@@ -194,9 +190,20 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
       AudioManager.instance.pauseBgm();
     }
 
+    if (quizData.questions.isEmpty) {
+      overlays.add(GameCompletedMenu.id);
+      overlays.remove(Hud.id);
+      pauseEngine();
+      AudioManager.instance.pauseBgm();
+      quizData.storeHistory();
+      shopData.setStar(quizData.bonus + quizData.score + shopData.star);
+
+      // TODO unlock next level
+      quizData.unlockNextChapter();
+    }
+
     // Show Question when the character hits enemy
     if (_runningCharacter.isHit) {
-      // _dino.isHit = false;
       _runningCharacter.isHit = false;
     }
 

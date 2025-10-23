@@ -1,12 +1,13 @@
+import 'package:dino_run/game/audio_manager.dart';
 import 'package:dino_run/models/quiz_models/level.dart';
+import 'package:dino_run/repositories/audio_repository.dart';
+import 'package:dino_run/view_models.dart/language_provider.dart';
 import 'package:dino_run/view_models.dart/quiz_data.dart';
-import 'package:easy_localization/easy_localization.dart' hide TextDirection;
+import 'package:dino_run/widgets/plank_button.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-
-import 'package:dino_run/models/player_data.dart';
-import 'package:dino_run/widgets/settings_menu.dart';
 
 class LevelScreen extends StatefulWidget {
   const LevelScreen({super.key});
@@ -16,149 +17,255 @@ class LevelScreen extends StatefulWidget {
 }
 
 class _LevelScreenState extends State<LevelScreen> {
-  late Future<List<Level>> levels;
-
-  @override
-  void initState() {
-    super.initState();
-    levels = context.read<QuizData>().levels;
-  }
+  List<Color> colors = [
+    const Color.fromARGB(170, 105, 240, 175),
+    const Color.fromARGB(180, 255, 153, 0),
+    const Color.fromARGB(178, 255, 109, 64),
+    const Color.fromARGB(155, 244, 67, 54)
+  ];
 
   @override
   Widget build(BuildContext context) {
-    // List<Map<String, dynamic>> levels = [
-    //   {
-    //     'quarter': '1st',
-    //     'title': 'Materials',
-    //   },
-    //   {
-    //     'quarter': '2nd',
-    //     'title': 'Living Things',
-    //   },
-    //   {
-    //     'quarter': '3rd',
-    //     'title': 'Force, Motion and Energy',
-    //   },
-    //   {
-    //     'quarter': '4th',
-    //     'title': 'Earth And Space',
-    //   },
-    // ];
+    List<Level> levels = context.read<QuizData>().levels;
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: FutureBuilder(
-            future: levels,
-            builder: (context, asyncSnapshot) {
-              return Column(
-                children: [
-                  Container(
-                    color: Colors.white,
-                    height: 45,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('hello'.tr()),
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                context.go('/shop');
-                              },
-                              child: Icon(Icons.shop),
-                            ),
-                            InkWell(
-                              onTap: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return Dialog(
-                                      child: SettingsMenu(),
-                                    );
-                                  },
-                                );
-                              },
-                              child: Icon(Icons.settings),
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.person),
-                              onPressed: () {
-                                context.go('/profile');
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    // width: double.infinity,
-                  ),
-                  Expanded(
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: double.infinity,
-                          color: Colors.blue,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(24.0),
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 4,
-                            itemBuilder: (context, index) {
-                              return InkWell(
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(
+              'assets/images/question background.png', // Your image path
+              fit: BoxFit.fill, // Ensures the image covers the whole screen
+            ),
+            Positioned(
+              top: constraints.maxHeight * 0.15,
+              left: constraints.maxHeight * 0.03,
+              child: Container(
+                height: constraints.maxHeight * 0.65,
+                width: constraints.maxWidth * 0.95,
+                padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * 0.1),
+                child: Column(
+                  children: [
+                    // Container(
+                    //   color: Colors.white,
+                    //   height: 45,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       Text('hello'.tr()),
+                    //       Row(
+                    //         children: [
+                    //           InkWell(
+                    //             onTap: () {
+                    //               context.go('/shop');
+                    //             },
+                    //             child: Icon(Icons.shop),
+                    //           ),
+                    //           InkWell(
+                    //             onTap: () {
+                    //               showDialog(
+                    //                 context: context,
+                    //                 builder: (context) {
+                    //                   return Dialog(
+                    //                     child: SettingsMenu(),
+                    //                   );
+                    //                 },
+                    //               );
+                    //             },
+                    //             child: Icon(Icons.settings),
+                    //           ),
+                    //           IconButton(
+                    //             icon: Icon(Icons.person),
+                    //             onPressed: () {
+                    //               context.go('/profile');
+                    //             },
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   // width: double.infinity,
+                    // ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 4,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 24),
+                              child: InkWell(
                                 onTap: () {
-                                  context.read<PlayerData>().setLevel(index);
-                                  context.read<QuizData>().setLevel(asyncSnapshot.data?[index].level ?? 0);
-                                  context.go('/chapters', extra: asyncSnapshot.data?[index].level);
+                                  AudioManager.instance.playSfx(AudioSfx.click);
+                                  if (levels[index].lock) {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Dialog(
+                                          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                                          child: Container(
+                                            height: 400,
+                                            width: 500,
+                                            padding: EdgeInsets.all(50),
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(image: AssetImage('assets/images/lock.png')),
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  context.watch<LanguageProvider>().levelLockDialog,
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 24,
+                                                ),
+                                                PlankButton(
+                                                  onTap: () {
+                                                    AudioManager.instance.playSfx(AudioSfx.click);
+                                                    context.pop();
+                                                  },
+                                                  label: 'Ok',
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  } else {
+                                    // context.read<PlayerData>().setLevel(index);
+                                    context.read<QuizData>().setLevel(levels[index].level);
+                                    context.go('/chapters', extra: levels[index].level);
+                                  }
                                 },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: AspectRatio(
-                                    aspectRatio: 10 / 16,
-                                    child: Container(
-                                      color: Colors.primaries[index],
-                                      child: Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            crossAxisAlignment: CrossAxisAlignment.end,
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Text(
-                                                '${asyncSnapshot.data?[index].title}',
-                                                // textDirection: TextDirection.rtl,
-                                                style: TextStyle(
-                                                  fontSize: Theme.of(context).textTheme.headlineLarge?.fontSize,
+                                child: Stack(
+                                  children: [
+                                    Image.asset('assets/images/paper_bg.png'),
+                                    Padding(
+                                      padding: const EdgeInsets.all(24.0),
+                                      child: AspectRatio(
+                                        aspectRatio: 10 / 16,
+                                        child: Align(
+                                          alignment: Alignment.center,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  levels[index].title,
+                                                  // textDirection: TextDirection.rtl,
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                  ),
                                                 ),
-                                              ),
-                                              Text(
-                                                '${asyncSnapshot.data?[index].level} Quarter',
-                                                // textDirection: TextDirection.rtl,
-                                                style: TextStyle(
-                                                  fontSize: Theme.of(context).textTheme.headlineSmall?.fontSize,
+                                                Text(
+                                                  '${context.watch<LanguageProvider>().quarter} ${levels[index].level}',
+                                                  // textDirection: TextDirection.rtl,
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontSize: 14,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                                Text(
+                                                  '${levels[index].chapters.length} ${context.watch<LanguageProvider>().chapters}',
+                                                  textAlign: TextAlign.center,
+                                                  // textDirection: TextDirection.rtl,
+                                                  style: TextStyle(
+                                                    fontSize: 8,
+                                                  ),
+                                                ),
+                                                Gap(14),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
+                                    Positioned(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: colors[index],
+                                            borderRadius: BorderRadius.circular(5),
+                                            border: Border.all(color: Colors.black87)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Text(levels[index].difficulty),
+                                        ),
+                                      ),
+                                    ),
+                                    Visibility(
+                                      visible: levels[index].lock,
+                                      child: Positioned(
+                                        right: 0,
+                                        top: 0,
+                                        child: Image.asset(
+                                          'assets/images/locked.png',
+                                          height: 42,
+                                          width: 42,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
-              );
-            }),
-      ),
-    );
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: MediaQuery.sizeOf(context).height * 0.03,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: Image.asset('assets/images/levels.png',
+                    height: MediaQuery.sizeOf(context).height * 0.12, width: MediaQuery.sizeOf(context).width * 0.45),
+              ),
+            ),
+            Positioned(
+              height: MediaQuery.sizeOf(context).height * 0.1,
+              width: MediaQuery.sizeOf(context).width * 0.1,
+              top: 14,
+              left: 14,
+              child: InkWell(
+                onTap: () {
+                  AudioManager.instance.playSfx(AudioSfx.click);
+                  context.go('/');
+                },
+                child: Image.asset(
+                  'assets/images/back arrow.png',
+                ),
+              ),
+            ),
+            Positioned(
+              right: 14,
+              bottom: 14,
+              height: 50,
+              width: 200,
+              child: PlankButton(
+                  onTap: () {
+                    AudioManager.instance.playSfx(AudioSfx.click);
+                    context.push('/history');
+                  },
+                  label: 'History'),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

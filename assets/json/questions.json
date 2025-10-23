@@ -2,36 +2,42 @@
     {
         "level": 1,
         "title": "Materials",
+        "lock": false,
         "chapters": [
             {
                 "chapter": 1,
                 "title": "Properties Of Matters",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "Which of the following materials absorb water?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Plastic, metal, glass",
-                                "imagePath": ""
+                                "imagePath": " ",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Sponge, cloth, paper",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Rubber, stone, marble",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Glass, plastic, aluminum",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -39,27 +45,31 @@
                         "questionNumber": 2,
                         "question": "Which of these materials float on water?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Wood, plastic bottle cap, cork",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Stone, metal spoon, coin",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Glass, steel nail, ceramic cup",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Brick, marble, coin",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -67,27 +77,31 @@
                         "questionNumber": 3,
                         "question": "Which materials usually undergo decay?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Fruits, vegetables, leftover food",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Glass, plastic, metal",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Stone, marble, sand",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Aluminum foil, rubber, nails",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -95,27 +109,31 @@
                         "questionNumber": 4,
                         "question": "Which sickness can be caused by exposure to decaying materials?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Toothache and sprain",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Dengue and measles",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Skin infection and diarrhea",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Headache and sore throat",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -123,27 +141,31 @@
                         "questionNumber": 5,
                         "question": "What is one effect of decaying materials on health and safety?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Makes the environment smell fresh",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Attracts insects and causes diseases",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Makes water clean and clear",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Keeps surroundings tidy",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -151,27 +173,31 @@
                         "questionNumber": 6,
                         "question": "Why is it important to read product labels?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "To know the brand name only",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "To check the price only",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "To know proper use and safety precautions",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "To see the color of the product",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -179,27 +205,31 @@
                         "questionNumber": 7,
                         "question": "Which is the best way to sort or separate materials?",
                         "correctChoice": "d",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_1_7_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By mixing all materials together",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By size and shape only",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By color only",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By biodegradable and non-biodegradable",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -208,32 +238,37 @@
             {
                 "chapter": 2,
                 "title": "Changes That Materials Undergo",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "How should waste materials be properly disposed of?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Burn everything together",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Throw them anywhere",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Segregate biodegradable and non-biodegradable materials",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Bury all waste in the soil",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -241,27 +276,31 @@
                         "questionNumber": 2,
                         "question": "Which is a safety precaution when disposing of waste materials?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Wearing gloves and mask",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Closing your eyes while throwing waste",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Using bare hands to touch waste",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Playing with sharp objects in trash",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -269,27 +308,31 @@
                         "questionNumber": 3,
                         "question": "What happens to solid materials when pressed?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They disappear completely",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They change shape or size",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They melt",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They float on water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -297,27 +340,31 @@
                         "questionNumber": 4,
                         "question": "What happens to materials when heated and then cooled?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They stay exactly the same",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They may change size, shape, or state",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They vanish into thin air",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They turn into metal",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -325,27 +372,31 @@
                         "questionNumber": 5,
                         "question": "What happens to solid materials when mixed with other solid materials?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They form a mixture",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They dissolve completely",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They melt instantly",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They evaporate",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -353,27 +404,31 @@
                         "questionNumber": 6,
                         "question": "What happens to solid materials when mixed with liquid materials?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They always float",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They may dissolve or sink",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They melt into metal",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They turn into gas",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -381,27 +436,31 @@
                         "questionNumber": 7,
                         "question": "What happens to liquid materials when mixed with other liquid materials?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_7_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They always separate into layers",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They may mix evenly or separate depending on type",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They turn into solids",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They disappear",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -409,27 +468,31 @@
                         "questionNumber": 8,
                         "question": "Which of the following describes changes in materials that are useful or harmful to the environment?",
                         "correctChoice": "d",
-                        "audio": "path",
+                        "audio": "questions_audio/en/1_2_8_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Burning plastic releases harmful smoke",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Composting biodegradable waste creates fertilizer",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Recycling paper reduces waste",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "All of the above",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -440,36 +503,42 @@
     {
         "level": 2,
         "title": "Living Things",
+        "lock": false,
         "chapters": [
             {
                 "chapter": 1,
                 "title": "Major Organs of The Human Body",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "What is the main function of the bones?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_1_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "To make food for the body",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "To support and protect the body",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "To pump blood",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "To help in breathing",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -477,27 +546,31 @@
                         "questionNumber": 2,
                         "question": "What is inside the skull of a chicken?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_1_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Brain",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Heart",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Lungs",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Liver",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -505,27 +578,31 @@
                         "questionNumber": 3,
                         "question": "Which is a common injury in sports?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_1_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Sprain",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Tooth decay",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Cough",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Fever",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -533,27 +610,31 @@
                         "questionNumber": 4,
                         "question": "Which bones protect the internal organs?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_1_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Ribs and skull",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Fingers and toes",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Arms and legs",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Collarbone and jaw",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -561,27 +642,31 @@
                         "questionNumber": 5,
                         "question": "How is food digested in the stomach?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_1_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By chewing only",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By mixing with gastric juices and churning",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By turning into gas",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By passing directly to the blood",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -589,27 +674,31 @@
                         "questionNumber": 6,
                         "question": "How is food digested in the intestines?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_1_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By mixing with saliva",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By absorbing nutrients into the blood",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By turning into bones",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By breaking into solid pieces",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -618,32 +707,37 @@
             {
                 "chapter": 2,
                 "title": "Animals",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "What are the functions of the kidneys?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "To pump blood through the body",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "To filter waste from the blood and produce urine",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "To digest food and absorb nutrients",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "To help in breathing",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -651,27 +745,31 @@
                         "questionNumber": 2,
                         "question": "What makes us respond to stimuli?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_2_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Heart",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Lungs",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Nervous system",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Kidneys",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -679,27 +777,31 @@
                         "questionNumber": 3,
                         "question": "How do animals survive in water?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_2_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By having gills, fins, or flippers",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By having fur and claws",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By building nests",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By flying away",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -707,27 +809,31 @@
                         "questionNumber": 4,
                         "question": "How do animals survive on land?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_2_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By swimming fast",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By having legs, lungs, and body coverings like fur or scales",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By breathing through gills",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By floating on water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -735,27 +841,31 @@
                         "questionNumber": 5,
                         "question": "How do animals get or eat their food?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_2_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By using their specialized body parts like beaks, teeth, or claws",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By waiting for food to fall into their mouths",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By drinking only water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By sleeping all day",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -763,27 +873,31 @@
                         "questionNumber": 6,
                         "question": "Which body parts of animals help protect them from their enemies?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_2_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Wings, gills, and beaks",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Shells, quills, sharp teeth, and claws",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Fins, scales, and whiskers",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Antennae, tails, and legs",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -792,32 +906,37 @@
             {
                 "chapter": 3,
                 "title": "Plants",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "What are animals found in a community and their habitat?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_3_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Dog in a desert",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Fish in the ocean, birds in trees",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Camel in the sea",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Frog in the sky",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -825,27 +944,31 @@
                         "questionNumber": 2,
                         "question": "Which animals are adapted to a particular habitat?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_3_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Camel in the desert, polar bear in the Arctic",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Dolphin in the forest",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Eagle living underwater",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Cow living in the ocean",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -853,27 +976,31 @@
                         "questionNumber": 3,
                         "question": "Which is one characteristic of plants?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_3_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They move from place to place",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They make their own food through photosynthesis",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They hunt for prey",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They can fly",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -881,27 +1008,31 @@
                         "questionNumber": 4,
                         "question": "Which of the following is an example of aquatic plants?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_3_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Rose",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Sunflower",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Water lily",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Mango Tree",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -909,27 +1040,31 @@
                         "questionNumber": 5,
                         "question": "What is the difference between aquatic and terrestrial plants?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_3_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Aquatic plants grow in water; terrestrial plants grow on land",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Aquatic plants grow on land; terrestrial plants grow in water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Aquatic plants do not need sunlight; terrestrial plants do",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Terrestrial plants need water but aquatic plants do not",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -937,27 +1072,31 @@
                         "questionNumber": 6,
                         "question": "What do plants need in order to grow?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_3_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Food from animals",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Sunlight, water, air, and nutrients from soil",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Only air and water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Shade and no sunlight",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -965,33 +1104,38 @@
             },
             {
                 "chapter": 4,
+                "lock": false,
                 "title": "Heredity: Inheritance and Variation",
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "Which of the following is an example of a terrestrial plant?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_4_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Water hyacinth",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Mango tree",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Lotus",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Seaweed",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -999,27 +1143,31 @@
                         "questionNumber": 2,
                         "question": "How can you grow your favorite plants?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_4_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By giving them enough sunlight, water, and nutrients",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By placing them in total darkness",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By not watering them at all",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By removing their leaves",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1027,27 +1175,31 @@
                         "questionNumber": 3,
                         "question": "What are seeds?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_4_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "The roots of a plant",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "The part of a plant that develops into a new plant",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "The stem of a plant",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "The flowers of a plant",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1055,27 +1207,31 @@
                         "questionNumber": 4,
                         "question": "Which is a monocot and which is a dicot?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_4_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Monocot: rice; Dicot: mango",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Monocot: mango; Dicot: corn",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Monocot: rose; Dicot: grass",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Monocot: coconut; Dicot: bamboo",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1083,27 +1239,31 @@
                         "questionNumber": 5,
                         "question": "What do seeds need to germinate?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_4_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Only air",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Water, air, and the right temperature",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Only water and light",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Darkness only",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1111,27 +1271,31 @@
                         "questionNumber": 6,
                         "question": "If an insect goes through egg \u2192 larva \u2192 pupa \u2192 adult, what kind of metamorphosis is it?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_4_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Incomplete metamorphosis",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Complete metamorphosis",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Partial metamorphosis",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "No metamorphosis",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -1140,32 +1304,37 @@
             {
                 "chapter": 5,
                 "title": "Ecosystems",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "Which of the following are egg-laying animals?",
-                        "correctChoice": "a",
-                        "audio": "path",
+                        "correctChoice": "b",
+                        "audio": "questions_audio/en/2_5_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Dogs and cats",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Chickens and ducks",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Goats and cows",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Horses and pigs",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1173,27 +1342,31 @@
                         "questionNumber": 2,
                         "question": "What is the life cycle of animals?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_5_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "The way animals breathe",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "The stages of growth and change an animal goes through from birth to adult",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "The time animals sleep",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "The food animals eat",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1201,27 +1374,31 @@
                         "questionNumber": 3,
                         "question": "Is interaction with living things important?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_5_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Yes, because it helps maintain balance in nature",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "No, because living things do not need each other",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Yes, but only for animals",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "No, because they can survive alone",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1229,27 +1406,31 @@
                         "questionNumber": 4,
                         "question": "Are there benefits with interaction among living things and the environment?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_5_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Yes, it provides food, shelter, and helps ecosystems function",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "No, it causes harm",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Yes, but only for humans",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "No, because it wastes resources",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1257,27 +1438,31 @@
                         "questionNumber": 5,
                         "question": "Which is a harmful interaction among living things?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_5_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Plants producing oxygen",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Animals pollinating flowers",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Pests damaging crops",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Fish cleaning coral reefs",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1285,27 +1470,31 @@
                         "questionNumber": 6,
                         "question": "Which environmental conditions are needed by living things?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_5_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Food, water, air, and suitable temperature",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Only air and sunlight",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Only water and soil",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Only warmth and shade",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1313,27 +1502,31 @@
                         "questionNumber": 7,
                         "question": "How are organisms affected by changes in the environment?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/2_5_7_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "They may adapt, move to a new place, or die",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "They always grow faster",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "They become immortal",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "They stop eating",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -1344,36 +1537,42 @@
     {
         "level": 3,
         "title": "Force, Motion and Energy",
+        "lock": false,
         "chapters": [
             {
                 "chapter": 1,
                 "title": "Force, Motion and Energy",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "What are the effects of force on the shape of an object?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_1_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It changes color",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It can bend, stretch, or flatten the object",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It makes the object disappear",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It makes the object heavier",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1381,27 +1580,31 @@
                         "questionNumber": 2,
                         "question": "How does force affect the size of an object?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_1_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It can make the object smaller or larger",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It changes the object\u2019s color",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It turns the object into a liquid",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It makes the object heavier",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1409,27 +1612,31 @@
                         "questionNumber": 3,
                         "question": "Which materials are attracted to a magnet?",
                         "correctChoice": "c",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_1_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Plastic and wood",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Rubber and glass",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Iron and steel",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Paper and cloth",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1437,27 +1644,31 @@
                         "questionNumber": 4,
                         "question": "How does force affect the movement of an object?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_1_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It makes the object sleep",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It can start, stop, speed up, slow down, or change the direction of the object",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It changes the object\u2019s smell",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It makes the object heavier",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1465,27 +1676,31 @@
                         "questionNumber": 5,
                         "question": "What kind of force is exerted by a magnet?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_1_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Gravitational force",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Magnetic force",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Frictional force",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Electric force",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -1494,32 +1709,37 @@
             {
                 "chapter": 2,
                 "title": "Light, Heat and Sound",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "How does heat transfer in solid and liquid materials?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "In solids through conduction; in liquids through convection",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "In solids through convection; in liquids through radiation",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "In solids through evaporation; in liquids through conduction",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "In solids through radiation; in liquids through condensation",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1527,27 +1747,31 @@
                         "questionNumber": 2,
                         "question": "How does light travel?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_2_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "In a zigzag pattern",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "In straight lines",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "In circles",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "In waves only through liquids",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1555,27 +1779,31 @@
                         "questionNumber": 3,
                         "question": "How does sound travel in different materials?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_2_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Faster in solids, slower in gases",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Faster in gases, slower in solids",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Same speed in all materials",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Only travels in liquids",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1583,27 +1811,31 @@
                         "questionNumber": 4,
                         "question": "Which of the following is a property of light?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_2_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It can bend, reflect, and be absorbed",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It can be eaten",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It makes objects heavier",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It can only be seen in the dark",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1611,27 +1843,31 @@
                         "questionNumber": 5,
                         "question": "Which of the following is a property of sound?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_2_5_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It can travel through solids, liquids, and gases",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It can be stored in a box",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It only exists in water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It has no direction",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1639,27 +1875,31 @@
                         "questionNumber": 6,
                         "question": "Which is a way to protect oneself from intense light and sound?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/3_2_6_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Using sunglasses and ear protection",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Looking directly at the sun",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Standing close to loudspeakers",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Shouting as loud as possible",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -1669,37 +1909,43 @@
     },
     {
         "level": 4,
-        "title": "",
+        "title": "Earth And Space",
+        "lock": false,
         "chapters": [
             {
                 "chapter": 1,
                 "title": "Earth And Space",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "Can you identify the Types and Characteristics of Soil?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_1_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Sandy, Clay, and Loamy",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Hard, Soft, and Wet",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Smooth, Rough, and Sticky",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Big, Small, and Medium",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1707,27 +1953,31 @@
                         "questionNumber": 2,
                         "question": "What do plants need in order to grow?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_1_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Toys, Sunlight, and Shoes",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Sunlight, Water, and Air",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Rocks, Sand, and Paper",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Food, Clothes, and Bags",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1735,27 +1985,31 @@
                         "questionNumber": 3,
                         "question": "Uses of water from different sources?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_1_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Drinking, Cooking, and Washing",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Playing, Coloring, and Reading",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Sleeping, Talking, and Walking",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Eating, Singing, and Dancing",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1763,27 +2017,31 @@
                         "questionNumber": 4,
                         "question": "How important is water in the environment?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_1_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It makes everything dirty",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It helps plants, animals, and people live",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It turns into toys",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It makes the ground disappear",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -1792,32 +2050,37 @@
             {
                 "chapter": 2,
                 "title": "Weather",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "How do you use weather instruments?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "By looking at them from a distance",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "By using each tool for its specific purpose, such as a thermometer for temperature and a rain gauge for rainfall",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "By guessing the weather without using them",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "By placing them indoors away from sunlight and wind",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1825,27 +2088,31 @@
                         "questionNumber": 2,
                         "question": "Is the weather condition the same in different places and different times?",
                         "correctChoice": "b",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Yes, because the Earth receives sunlight equally everywhere",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "No, because weather is affected by location, time, and environmental factors",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Yes, because all places have the same temperature in the morning",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "No, but only during summer",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1853,27 +2120,31 @@
                         "questionNumber": 3,
                         "question": "Which is the safest precaution during different weather conditions?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Wearing light clothes during hot days and seeking shade",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Going to open areas during thunderstorms",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Swimming in rivers during heavy rains",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Staying outside during strong winds to observe the weather",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1881,27 +2152,31 @@
                         "questionNumber": 4,
                         "question": "What is the importance of the Sun\u2019s heat and light?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_2_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "It provides energy for plants to make food and keeps Earth warm",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "It makes the Earth spin faster",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "It changes the color of the sky permanently",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "It allows the Moon to produce its own light",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }
@@ -1910,32 +2185,37 @@
             {
                 "chapter": 3,
                 "title": "The sun",
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,
                         "question": "What are some facts about Light and Shadows?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_3_1_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Shadows are made when light is blocked",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Shadows are only seen at night",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Light can bend around walls",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Shadows make things disappear",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1943,27 +2223,31 @@
                         "questionNumber": 2,
                         "question": "What is the Role of the Sun in the Water Cycle?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_3_2_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Heats water so it becomes vapor",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Cools water into ice",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Brings rain from clouds",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Makes the ocean bigger",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1971,27 +2255,31 @@
                         "questionNumber": 3,
                         "question": "What are the effects of the Sun's Heat and Light?",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_3_3_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Helps plants grow and warms Earth",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Turns rocks into food",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Makes night time longer",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Stops rain forever",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     },
@@ -1999,27 +2287,31 @@
                         "questionNumber": 4,
                         "question": "Practices of Safety Precautions on the Effects of the Sun",
                         "correctChoice": "a",
-                        "audio": "path",
+                        "audio": "questions_audio/en/4_3_4_q.wav",
                         "choices": [
                             {
                                 "choiceId": "a",
                                 "choice": "Wear a hat and drink water",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "b",
                                 "choice": "Look directly at the Sun",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "c",
                                 "choice": "Play outside at noon without shade",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             },
                             {
                                 "choiceId": "d",
                                 "choice": "Wear thick jackets in hot weather",
-                                "imagePath": ""
+                                "imagePath": "",
+                                "audio": "questions_audio/en/"
                             }
                         ]
                     }

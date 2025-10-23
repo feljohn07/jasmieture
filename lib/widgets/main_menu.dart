@@ -1,14 +1,13 @@
 import 'dart:ui';
 
 import 'package:dino_run/main.dart';
-import 'package:dino_run/screens/shop.dart';
+import 'package:dino_run/screens/shop/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '/widgets/hud.dart';
 import '/game/dino_run.dart';
-import '/widgets/settings_menu.dart';
 
 // This represents the main menu overlay.
 class MainMenu extends StatelessWidget {

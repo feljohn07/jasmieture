@@ -20,19 +20,25 @@ class LevelAdapter extends TypeAdapter<Level> {
       level: fields[0] as int,
       chapters: (fields[1] as List).cast<Chapter>(),
       title: fields[2] as String,
+      lock: fields[3] as bool,
+      difficulty: fields[4] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Level obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.level)
       ..writeByte(1)
       ..write(obj.chapters)
       ..writeByte(2)
-      ..write(obj.title);
+      ..write(obj.title)
+      ..writeByte(3)
+      ..write(obj.lock)
+      ..writeByte(4)
+      ..write(obj.difficulty);
   }
 
   @override

@@ -25,7 +25,7 @@ class Hud extends StatelessWidget {
     // final level = context.watch<QuizData>().level;
 
     return ChangeNotifierProvider.value(
-      value: game.playerData,
+      value: game.quizData,
       child: Padding(
         padding: const EdgeInsets.only(top: 10.0),
         child: Row(
@@ -33,15 +33,21 @@ class Hud extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  'level: ${context.watch<QuizData>().level} chapter: ${context.watch<QuizData>().chapter}',
+                  style: const TextStyle(color: Colors.white),
+                ),
                 Selector<QuizData, int>(
                   selector: (_, quizData) => quizData.score,
                   builder: (_, score, __) {
                     return Row(
                       children: [
-                        Icon(Icons.star),
+                        Icon(Icons.star, color: Colors.amberAccent),
                         Text(
-                          'SCORE: $score',
+                          '$score',
                           style: const TextStyle(fontSize: 20, color: Colors.white),
                         ),
                       ],
@@ -66,15 +72,7 @@ class Hud extends StatelessWidget {
                 //     );
                 //   },
                 // ),
-                Selector<QuizData, int>(
-                  selector: (_, quizData) => quizData.level,
-                  builder: (_, level, __) {
-                    return Text(
-                      'level: $level',
-                      style: const TextStyle(color: Colors.white),
-                    );
-                  },
-                ),
+
                 // Text('$level'),
                 // Text('$chapter'),
               ],
@@ -92,7 +90,7 @@ class Hud extends StatelessWidget {
               selector: (_, quizData) => quizData.lives,
               builder: (_, lives, __) {
                 return Row(
-                  children: List.generate(5, (index) {
+                  children: List.generate(3, (index) {
                     if (index < lives) {
                       return const Icon(Icons.favorite, color: Colors.red);
                     } else {

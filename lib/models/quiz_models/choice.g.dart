@@ -20,19 +20,22 @@ class ChoiceAdapter extends TypeAdapter<Choice> {
       choiceId: fields[0] as String,
       choice: fields[1] as String,
       imagePath: fields[2] as String,
+      audio: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Choice obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.choiceId)
       ..writeByte(1)
       ..write(obj.choice)
       ..writeByte(2)
-      ..write(obj.imagePath);
+      ..write(obj.imagePath)
+      ..writeByte(3)
+      ..write(obj.audio);
   }
 
   @override

@@ -1,33 +1,37 @@
-import 'package:hive/hive.dart';
+import 'package:dino_run/game/audio_manager.dart';
+import 'package:dino_run/models/bgm.dart';
+import 'package:dino_run/models/game/settings.dart';
+import 'package:dino_run/repositories/audio_repository.dart';
+import 'package:dino_run/repositories/settings_repository.dart';
 import 'package:flutter/foundation.dart';
 
-part 'settings.g.dart';
+class SettingsData extends ChangeNotifier {
+  SettingsRepository settingsRepository;
+  late Settings settings;
 
-// This class stores the game settings persistently.
-@HiveType(typeId: 1)
-class Settings extends ChangeNotifier with HiveObjectMixin {
-  Settings({bool bgm = false, bool sfx = false}) {
-    _bgm = bgm;
-    _sfx = sfx;
+  SettingsData(this.settingsRepository) {
+    settings = settingsRepository.getSettings();
   }
 
-  @HiveField(0)
-  bool _bgm = false;
+  AudioBgm get bgmPath => settings.bgmPath;
+  Future<void> setBgmPath(AudioBgm path) async {
+    await settingsRepository.setBgmPath(path);
+    AudioManager.instance.startBgm(path);
 
-  bool get bgm => _bgm;
-  set bgm(bool value) {
-    _bgm = value;
     notifyListeners();
-    save();
   }
 
-  @HiveField(1)
-  bool _sfx = false;
-
-  bool get sfx => _sfx;
-  set sfx(bool value) {
-    _sfx = value;
+  bool get bgm => settings.bgm;
+  Future<void> setBgm(bool value) async {
+    await settingsRepository.setBgm(value);
+    settings = settingsRepository.getSettings();
     notifyListeners();
-    save();
+  }
+
+  bool get sfx => settings.sfx;
+  Future<void> setSfx(bool value) async {
+    await settingsRepository.setSfx(value);
+    settings = settingsRepository.getSettings();
+    notifyListeners();
   }
 }
