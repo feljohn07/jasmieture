@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:dino_run/paywall/paywall_provider.dart';
 import 'package:dino_run/repositories/implementations/game_history_repository_impl.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flame_rive/flame_rive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,6 +16,7 @@ import 'package:dino_run/view_models.dart/language_provider.dart';
 
 import 'app.dart';
 import 'core/utils/level_parser.dart';
+import 'firebase_options.dart';
 import 'game/audio_manager.dart';
 import 'models/player_data.dart';
 import 'models/settings.dart';
@@ -37,6 +40,10 @@ Future<void> main() async {
 
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
 
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
@@ -53,6 +60,10 @@ Future<void> main() async {
   final shopData = ShopData(shopRepository: shopRepository);
   final riveProvider = RiveProvider();
 
+  final accessControlProvider = AccessControl();
+
+  await accessControlProvider.initialize();
+
   // settingsData.initialize();
   await riveProvider.initRive(shopData.shop);
 
@@ -67,6 +78,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => settingsData),
         ChangeNotifierProvider(create: (_) => shopData),
         ChangeNotifierProvider(create: (_) => riveProvider),
+        ChangeNotifierProvider(create: (_) => accessControlProvider),
       ],
       child: DinoRunApp(),
     ),
