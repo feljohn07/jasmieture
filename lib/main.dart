@@ -4,6 +4,7 @@ import 'package:dino_run/repositories/implementations/game_history_repository_im
 import 'package:flame_rive/flame_rive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 
 import 'package:dino_run/repositories/data/datasource.dart';
@@ -32,9 +33,11 @@ final settingsRepository = SettingsRepositoryImp(datasource: datasource);
 final historyRepository = GameHistoryRepositoryImpl(datasource: datasource);
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  // await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
 
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 

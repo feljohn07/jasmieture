@@ -195,8 +195,8 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
       overlays.remove(Hud.id);
       pauseEngine();
       AudioManager.instance.pauseBgm();
-      quizData.storeHistory();
       shopData.setStar(quizData.bonus + quizData.score + shopData.star);
+      quizData.storeHistory();
 
       // TODO unlock next level
       quizData.unlockNextChapter();

@@ -120,7 +120,8 @@ class ShopData extends ChangeNotifier {
 
     characterPreview = shop.characterSelected;
 
-    shop.star = 500; // TODO - for testing only, delete in production.
+    // shop.star = 500; // TODO - for testing only, delete in production.
+    shop.star = 0;
   }
 
   void purchaseBackground(Background background) {

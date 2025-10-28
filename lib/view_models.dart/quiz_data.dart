@@ -21,7 +21,7 @@ class QuizData extends ChangeNotifier {
   QuizData(this._lessonRepository, this._settingsRepository, this._gameHistoryRepository);
 
   String get language => _settingsRepository.getSettings().language;
-  List<History> get histories => _gameHistoryRepository.all();
+  List<History> get histories => _gameHistoryRepository.all().reversed.toList();
 
   int level = 0;
   int chapter = 0;
@@ -31,13 +31,11 @@ class QuizData extends ChangeNotifier {
   int get lives => _lives;
 
   int get bonus {
-    if (elapsedSeconds <= 120 && elapsedSeconds >= 90) {
+    if (elapsedSeconds <= 600 && elapsedSeconds >= 301) {
       return 2;
-    } else if (elapsedSeconds <= 89 && elapsedSeconds >= 50) {
+    } else if (elapsedSeconds <= 300 && elapsedSeconds >= 121) {
       return 3;
-    } else if (elapsedSeconds <= 49 && elapsedSeconds >= 20) {
-      return 4;
-    } else if (elapsedSeconds <= 19 && elapsedSeconds >= 0) {
+    } else if (elapsedSeconds <= 120 && elapsedSeconds >= 0) {
       return 5;
     }
     return 0;
@@ -78,7 +76,7 @@ class QuizData extends ChangeNotifier {
 
     questions = List<Question>.from(
       _lessonRepository.getQuestions(language, level, chapter),
-    ); //..shuffle();
+    )..shuffle();
 
     totalQuestions = questions.length;
     // print(questions.length);

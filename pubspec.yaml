@@ -108,6 +108,7 @@ flutter:
     - assets/translations/
     - assets/json/
     - assets/questions/
+    - assets/images/app_icon.png 
 
   fonts:
     # - family: Audiowide
@@ -128,11 +129,17 @@ flutter_launcher_icons:
 
 
 # App Splash screen configuration 
+# flutter_native_splash:
+#   color: "#FFFFFF" # Your splash screen background color
+#   image: assets/images/app_icon.png # Your splash screen logo
+#   android: true
+#   # ios: true
+
 flutter_native_splash:
-  color: "#FFFFFF" # Your splash screen background color
-  image: assets/images/app_icon.png # Your splash screen logo
-  android: true
-  # ios: true
+  color: "#FFC001"
+  color_dark: "#FFC001"
+  image: assets/images/app_icon.png 
+  image_dark: assets/images/app_icon.png 
 
 # Run the package to create the native splash screen files
 # flutter pub run flutter_native_splash:create

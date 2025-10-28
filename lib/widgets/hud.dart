@@ -54,6 +54,20 @@ class Hud extends StatelessWidget {
                     );
                   },
                 ),
+                // Selector<QuizData, int>(
+                //   selector: (_, quizData) => quizData.bonus,
+                //   builder: (_, bonus, __) {
+                //     return Row(
+                //       children: [
+                //         Icon(Icons.star, color: Colors.amberAccent),
+                //         Text(
+                //           'Bunos $bonus',
+                //           style: const TextStyle(fontSize: 20, color: Colors.white),
+                //         ),
+                //       ],
+                //     );
+                //   },
+                // ),
                 // Selector<PlayerData, int>(
                 //   selector: (_, quizData) => quizData.highScore,
                 //   builder: (_, highScore, __) {

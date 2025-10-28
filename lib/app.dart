@@ -1,5 +1,7 @@
 import 'package:dino_run/core/routes/routes.dart';
+import 'package:dino_run/game/audio_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class DinoRunApp extends StatefulWidget {
   const DinoRunApp({super.key});
@@ -8,7 +10,53 @@ class DinoRunApp extends StatefulWidget {
   State<DinoRunApp> createState() => _DinoRunAppState();
 }
 
-class _DinoRunAppState extends State<DinoRunApp> {
+class _DinoRunAppState extends State<DinoRunApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    // 3. Register the observer
+    WidgetsBinding.instance.addObserver(this);
+
+    // Call your function to remove the splash
+    initializeApp();
+  }
+
+  void initializeApp() async {
+    // This is where you can load resources, check logins, etc.
+
+    // --- THIS IS YOUR "DURATION" ---
+    // Wait for 3 seconds (or any duration you want)
+    await Future.delayed(const Duration(seconds: 3));
+
+    // After the delay, remove the splash screen
+    FlutterNativeSplash.remove();
+  }
+
+  @override
+  void dispose() {
+    // 4. Unregister the observer
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  // 5. Implement the lifecycle method
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    if (state == AppLifecycleState.paused) {
+      // App is in the background
+      print("App is paused (from MyApp). Stopping music.");
+      AudioManager.instance.pauseBgm();
+    } else if (state == AppLifecycleState.resumed) {
+      // App is back in the foreground
+      print("App is resumed (from MyApp).");
+
+      // Example:
+      AudioManager.instance.resumeBgm();
+    }
+  }
+
   @override
   void didChangeDependencies() async {
     super.didChangeDependencies();
