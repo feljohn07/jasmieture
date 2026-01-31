@@ -45,8 +45,11 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
   static const _imageAssets = [
     'DinoSprites - tard.png',
     'AngryPig/Walk (36x30).png',
+    'AngryPig/Walk with star.png',
     'Bat/Flying (46x30).png',
+    'Bat/Flying (46x60).png',
     'Rino/Run (52x34).png',
+    'Rino/Run (52x68).png',
     'parallax/plx-1.png',
     'parallax/plx-2.png',
     'parallax/plx-3.png',
@@ -70,15 +73,35 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection, Keyboar
   Vector2 get virtualSize => camera.viewport.virtualSize;
 
   // TODO - TESTING on passing buildContext inside game component
-  @override
+  // @override
   // late BuildContext buildContext;
   // ------------------------------------------------------------
+
+  void _onQuizDataChange() {
+    // TODO activate this if you want to use this
+    // time limit - 15 minutes
+    if (quizData.elapsedSeconds > 900) {
+      // print('Game Over');
+      overlays.remove(QuestionOverlay.id);
+      quizData.pauseTimer();
+      overlays.add(GameOverMenu.id);
+      // resumeEngine();
+    }
+  }
+
+  @override
+  void onRemove() {
+    super.onRemove();
+    quizData.removeListener(_onQuizDataChange);
+  }
 
   /// [RiveProvider.artboard]
   // This method get called while flame is preparing this game.
   @override
   Future<void> onLoad() async {
     await quizData.initialize(quizData.level, quizData.chapter);
+
+    quizData.addListener(_onQuizDataChange);
 
     //
     // TODO - TESTING on passing buildContext inside game component

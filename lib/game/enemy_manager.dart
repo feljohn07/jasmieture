@@ -56,26 +56,27 @@ class EnemyManager extends Component with HasGameReference<DinoRun> {
       // As soon as this component is mounted, initilize all the data.
       _data.addAll([
         EnemyData(
-          image: game.images.fromCache('AngryPig/Walk (36x30).png'),
+          // image: game.images.fromCache('AngryPig/Walk (36x30).png'),
+          image: game.images.fromCache('AngryPig/Walk with star.png'),
           nFrames: 16,
           stepTime: 0.1,
-          textureSize: Vector2(36, 30),
+          textureSize: Vector2(36, 60),
           speedX: 80,
           canFly: false,
         ),
         EnemyData(
-          image: game.images.fromCache('Bat/Flying (46x30).png'),
+          image: game.images.fromCache('Bat/Flying (46x60).png'),
           nFrames: 7,
           stepTime: 0.1,
-          textureSize: Vector2(46, 30),
+          textureSize: Vector2(46, 60),
           speedX: 100,
           canFly: true,
         ),
         EnemyData(
-          image: game.images.fromCache('Rino/Run (52x34).png'),
+          image: game.images.fromCache('Rino/Run (52x68).png'),
           nFrames: 6,
           stepTime: 0.09,
-          textureSize: Vector2(52, 34),
+          textureSize: Vector2(52, 68),
           speedX: 150,
           canFly: false,
         ),

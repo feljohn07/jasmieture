@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1035714508169",
+    "project_id": "jasmieture-f72f3",
+    "storage_bucket": "jasmieture-f72f3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035714508169:android:0ad9a111e424e30f785d58",
+        "android_client_info": {
+          "package_name": "com.example.dino_run"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEjadBrMJsWDDE1YK9FKYWTaKVTqW69yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

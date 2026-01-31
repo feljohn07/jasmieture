@@ -6,6 +6,7 @@ import 'package:dino_run/repositories/audio_repository.dart';
 import 'package:dino_run/screens/main_menu_screen.dart';
 import 'package:dino_run/widgets/plank_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart'; // IMPORT THIS
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -45,19 +46,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
       lastnameController.text = player!.lastname;
       sectionController.text = player!.section;
       ageController.text = player!.age.toString();
-      // calculateAge(player!.dateOfBirth).toString();
-      // dateOfBirth = player!.dateOfBirth;
     }
   }
 
-  String? stringValidator(String? value) => (value == null || value.isEmpty) ? 'Fill this field.' : null;
+  String? stringValidator(String? value) =>
+      (value == null || value.isEmpty) ? 'Fill this field.' : null;
 
   int calculateAge(DateTime birthDate) {
     DateTime today = DateTime.now();
     int age = today.year - birthDate.year;
 
-    // Adjust if birthday hasn't occurred yet this year
-    if (today.month < birthDate.month || (today.month == birthDate.month && today.day < birthDate.day)) {
+    if (today.month < birthDate.month ||
+        (today.month == birthDate.month && today.day < birthDate.day)) {
       age--;
     }
 
@@ -73,7 +73,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Container(
               height: constraints.maxHeight,
               decoration: BoxDecoration(
-                image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/question background.png')),
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/question background.png')),
               ),
               child: Padding(
                 padding: EdgeInsets.only(
@@ -90,23 +92,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //   children: [
-                        //     Text(
-                        //       'Player Profile',
-                        //       style: TextStyle(fontSize: 32),
-                        //     ),
-                        //     InkWell(
-                        //         onTap: () {
-                        //           context.go(MainMenuScreen.path);
-                        //         },
-                        //         child: Icon(Icons.close, size: 32, color: Colors.red)),
-                        //   ],
-                        // ),
-                        SizedBox(
-                          height: 14,
-                        ),
+                        SizedBox(height: 14),
+
+                        // --- ROW 1: First & Middle Name ---
                         Row(
                           spacing: 14,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -137,10 +125,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                             ),
                           ],
-                        ),
-                        SizedBox(
-                          height: 14,
-                        ),
+                        )
+                            .animate(delay: 200.ms)
+                            .fade(duration: 500.ms)
+                            .slideY(begin: 0.2, end: 0, curve: Curves.easeOut),
+
+                        SizedBox(height: 14),
+
+                        // --- ROW 2: Last Name & Section ---
                         Row(
                           spacing: 14,
                           children: [
@@ -169,8 +161,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                             ),
                           ],
-                        ),
+                        )
+                            .animate(delay: 300.ms) // Delayed after Row 1
+                            .fade(duration: 500.ms)
+                            .slideY(begin: 0.2, end: 0, curve: Curves.easeOut),
+
                         SizedBox(height: 14),
+
+                        // --- ROW 3: Age & Update Button ---
                         Row(
                           children: [
                             Flexible(
@@ -190,48 +188,112 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: PlankButton(
                                 onTap: () async {
                                   if (formKey.currentState!.validate()) {
-                                    // final player = Player(
-                                    //   firstname: firstnameController.text,
-                                    //   lastname: lastnameController.text,
-                                    //   middlename: middlenameController.text,
-                                    //   section: sectionController.text,
-                                    //   dateOfBirth: dateOfBirth!,
-                                    // );
-
                                     player
                                       ?..firstname = firstnameController.text
                                       ..lastname = lastnameController.text
                                       ..middlename = middlenameController.text
                                       ..section = sectionController.text
-                                      ..age = int.tryParse(ageController.text) ?? 0;
+                                      ..age =
+                                          int.tryParse(ageController.text) ?? 0;
 
-                                    await context.read<PlayerData>().playerRepository.updatePlayer(player!);
-                                    if (context.mounted) context.go(MainMenuScreen.path);
+                                    await context
+                                        .read<PlayerData>()
+                                        .playerRepository
+                                        .updatePlayer(player!);
+
+                                    if (context.mounted) {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor:
+                                            const Color.fromARGB(0, 0, 0, 0),
+                                            child: Container(
+                                              height: 400,
+                                              width: 500,
+                                              padding: EdgeInsets.all(50),
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                    image: AssetImage(
+                                                        'assets/images/updated panel.png')),
+                                              ),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.check_circle,
+                                                    size: 100,
+                                                    color: Colors.green.shade500,
+                                                  )
+                                                      .animate() // Success Icon Pop
+                                                      .scale(curve: Curves.elasticOut, duration: 600.ms),
+
+                                                  Text(
+                                                    'Profile Updated',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                      fontSize: 18,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 24,
+                                                  ),
+                                                  PlankButton(
+                                                    onTap: () {
+                                                      AudioManager.instance
+                                                          .playSfx(AudioSfx.click);
+                                                      context.pop();
+                                                    },
+                                                    label: 'Ok',
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                                .animate() // Dialog Pop-in
+                                                .scale(curve: Curves.elasticOut, duration: 500.ms)
+                                                .fade(),
+                                          );
+                                        },
+                                      );
+                                    }
                                   }
                                 },
                                 label: 'Update',
                               ),
                             )
                           ],
-                        ),
-                        SizedBox(
-                          height: 14,
-                        ),
+                        )
+                            .animate(delay: 400.ms) // Delayed after Row 2
+                            .fade(duration: 500.ms)
+                            .slideY(begin: 0.2, end: 0, curve: Curves.easeOut),
+
+                        SizedBox(height: 14),
                       ],
                     ),
                   ),
                 ),
               ),
             ),
+
+            // --- TITLE IMAGE ---
             Positioned(
               top: MediaQuery.sizeOf(context).height * 0.01,
               left: 0,
               right: 0,
               child: Center(
                 child: Image.asset('assets/images/player profile.png',
-                    height: MediaQuery.sizeOf(context).height * 0.15, width: MediaQuery.sizeOf(context).width * 0.45),
+                    height: MediaQuery.sizeOf(context).height * 0.15,
+                    width: MediaQuery.sizeOf(context).width * 0.45),
               ),
-            ),
+            )
+                .animate()
+                .fade(duration: 500.ms)
+                .moveY(begin: -50, end: 0, curve: Curves.easeOut),
+
+            // --- BACK ARROW ---
             Positioned(
               height: MediaQuery.sizeOf(context).height * 0.1,
               width: MediaQuery.sizeOf(context).width * 0.1,
@@ -246,7 +308,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   'assets/images/back arrow.png',
                 ),
               ),
-            ),
+            )
+                .animate(delay: 200.ms)
+                .fade()
+                .moveX(begin: -30, end: 0, curve: Curves.easeOut),
           ],
         );
       }),

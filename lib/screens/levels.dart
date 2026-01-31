@@ -5,6 +5,7 @@ import 'package:dino_run/view_models.dart/language_provider.dart';
 import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:dino_run/widgets/plank_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart'; // IMPORT THIS
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -34,58 +35,20 @@ class _LevelScreenState extends State<LevelScreen> {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/images/question background.png', // Your image path
-              fit: BoxFit.fill, // Ensures the image covers the whole screen
+              'assets/images/question background.png',
+              fit: BoxFit.fill,
             ),
             Positioned(
-              top: constraints.maxHeight * 0.15,
-              left: constraints.maxHeight * 0.03,
+              top: constraints.maxHeight * 0.12,
+              left: constraints.maxHeight * 0.02,
+              right: constraints.maxHeight * 0.03,
               child: Container(
                 height: constraints.maxHeight * 0.65,
                 width: constraints.maxWidth * 0.95,
-                padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * 0.1),
+                padding: EdgeInsets.symmetric(
+                    horizontal: constraints.maxWidth * 0.1),
                 child: Column(
                   children: [
-                    // Container(
-                    //   color: Colors.white,
-                    //   height: 45,
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //     children: [
-                    //       Text('hello'.tr()),
-                    //       Row(
-                    //         children: [
-                    //           InkWell(
-                    //             onTap: () {
-                    //               context.go('/shop');
-                    //             },
-                    //             child: Icon(Icons.shop),
-                    //           ),
-                    //           InkWell(
-                    //             onTap: () {
-                    //               showDialog(
-                    //                 context: context,
-                    //                 builder: (context) {
-                    //                   return Dialog(
-                    //                     child: SettingsMenu(),
-                    //                   );
-                    //                 },
-                    //               );
-                    //             },
-                    //             child: Icon(Icons.settings),
-                    //           ),
-                    //           IconButton(
-                    //             icon: Icon(Icons.person),
-                    //             onPressed: () {
-                    //               context.go('/profile');
-                    //             },
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ],
-                    //   ),
-                    //   // width: double.infinity,
-                    // ),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(24.0),
@@ -93,30 +56,40 @@ class _LevelScreenState extends State<LevelScreen> {
                           scrollDirection: Axis.horizontal,
                           itemCount: 4,
                           itemBuilder: (context, index) {
+                            // --- ANIMATED LIST ITEM START ---
+                            // We wrap the list item Padding widget with animate()
                             return Padding(
                               padding: const EdgeInsets.only(right: 24),
                               child: InkWell(
                                 onTap: () {
+                                  // ... (Existing tap logic) ...
                                   AudioManager.instance.playSfx(AudioSfx.click);
                                   if (levels[index].lock) {
                                     showDialog(
                                       context: context,
                                       builder: (context) {
                                         return Dialog(
-                                          backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                                          backgroundColor:
+                                          const Color.fromARGB(0, 0, 0, 0),
                                           child: Container(
                                             height: 400,
                                             width: 500,
                                             padding: EdgeInsets.all(50),
                                             decoration: BoxDecoration(
-                                              image: DecorationImage(image: AssetImage('assets/images/lock.png')),
+                                              image: DecorationImage(
+                                                  image: AssetImage(
+                                                      'assets/images/lock.png')),
                                             ),
                                             child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  context.watch<LanguageProvider>().levelLockDialog,
+                                                  context
+                                                      .watch<LanguageProvider>()
+                                                      .levelLockDialog,
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 18,
@@ -127,7 +100,8 @@ class _LevelScreenState extends State<LevelScreen> {
                                                 ),
                                                 PlankButton(
                                                   onTap: () {
-                                                    AudioManager.instance.playSfx(AudioSfx.click);
+                                                    AudioManager.instance
+                                                        .playSfx(AudioSfx.click);
                                                     context.pop();
                                                   },
                                                   label: 'Ok',
@@ -139,9 +113,11 @@ class _LevelScreenState extends State<LevelScreen> {
                                       },
                                     );
                                   } else {
-                                    // context.read<PlayerData>().setLevel(index);
-                                    context.read<QuizData>().setLevel(levels[index].level);
-                                    context.go('/chapters', extra: levels[index].level);
+                                    context
+                                        .read<QuizData>()
+                                        .setLevel(levels[index].level);
+                                    context.go('/chapters',
+                                        extra: levels[index].level);
                                   }
                                 },
                                 child: Stack(
@@ -156,30 +132,29 @@ class _LevelScreenState extends State<LevelScreen> {
                                           child: Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Text(
                                                   levels[index].title,
-                                                  // textDirection: TextDirection.rtl,
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '${context.watch<LanguageProvider>().quarter} ${levels[index].level}',
-                                                  // textDirection: TextDirection.rtl,
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 14,
                                                   ),
                                                 ),
                                                 Text(
+                                                  '${context.watch<LanguageProvider>().quarter} ${levels[index].level}',
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                  ),
+                                                ),
+                                                Text(
                                                   '${levels[index].chapters.length} ${context.watch<LanguageProvider>().chapters}',
                                                   textAlign: TextAlign.center,
-                                                  // textDirection: TextDirection.rtl,
                                                   style: TextStyle(
                                                     fontSize: 8,
                                                   ),
@@ -195,8 +170,10 @@ class _LevelScreenState extends State<LevelScreen> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: colors[index],
-                                            borderRadius: BorderRadius.circular(5),
-                                            border: Border.all(color: Colors.black87)),
+                                            borderRadius:
+                                            BorderRadius.circular(5),
+                                            border: Border.all(
+                                                color: Colors.black87)),
                                         child: Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: Text(levels[index].difficulty),
@@ -212,13 +189,29 @@ class _LevelScreenState extends State<LevelScreen> {
                                           'assets/images/locked.png',
                                           height: 42,
                                           width: 42,
-                                        ),
+                                        )
+                                        // Add a subtle pulse to the lock icon
+                                            .animate(
+                                          onPlay: (controller) =>
+                                              controller.repeat(reverse: true),
+                                        )
+                                            .scaleXY(
+                                            begin: 1.0,
+                                            end: 1.1,
+                                            duration: 1000.ms,
+                                            curve: Curves.easeInOut),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            );
+                            )
+                            // Staggered entrance animation based on index
+                                .animate(delay: (300 + (index * 150)).ms)
+                                .fade(duration: 600.ms)
+                                .slideY(
+                                begin: 0.2, end: 0, curve: Curves.easeOutBack);
+                            // --- ANIMATED LIST ITEM END ---
                           },
                         ),
                       ),
@@ -233,9 +226,15 @@ class _LevelScreenState extends State<LevelScreen> {
               right: 0,
               child: Center(
                 child: Image.asset('assets/images/levels.png',
-                    height: MediaQuery.sizeOf(context).height * 0.12, width: MediaQuery.sizeOf(context).width * 0.45),
+                    height: MediaQuery.sizeOf(context).height * 0.12,
+                    width: MediaQuery.sizeOf(context).width * 0.45),
               ),
-            ),
+            )
+            // Title drops down
+                .animate()
+                .fade(duration: 500.ms)
+                .moveY(begin: -50, end: 0, curve: Curves.easeOut),
+
             Positioned(
               height: MediaQuery.sizeOf(context).height * 0.1,
               width: MediaQuery.sizeOf(context).width * 0.1,
@@ -250,7 +249,12 @@ class _LevelScreenState extends State<LevelScreen> {
                   'assets/images/back arrow.png',
                 ),
               ),
-            ),
+            )
+            // Back arrow slides in from left
+                .animate(delay: 200.ms)
+                .fade()
+                .moveX(begin: -30, end: 0, curve: Curves.easeOut),
+
             Positioned(
               right: 14,
               bottom: 14,
@@ -262,7 +266,11 @@ class _LevelScreenState extends State<LevelScreen> {
                     context.push('/history');
                   },
                   label: 'History'),
-            ),
+            )
+            // History button slides up from bottom right
+                .animate(delay: 800.ms)
+                .fade()
+                .moveY(begin: 50, end: 0, curve: Curves.easeOutBack),
           ],
         ),
       );

@@ -1,8 +1,9 @@
 import 'dart:convert';
+// Add this import for Completer
+import 'dart:async';
 
-import 'package:dino_run/paywall/paywall_provider.dart';
 import 'package:dino_run/repositories/implementations/game_history_repository_impl.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:dino_run/screens/game_intro_screen.dart';
 import 'package:flame_rive/flame_rive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +17,6 @@ import 'package:dino_run/view_models.dart/language_provider.dart';
 
 import 'app.dart';
 import 'core/utils/level_parser.dart';
-import 'firebase_options.dart';
 import 'game/audio_manager.dart';
 import 'models/player_data.dart';
 import 'models/settings.dart';
@@ -34,41 +34,52 @@ final shopRepository = ShopRepositoryImpl(datasource: datasource);
 final playerRepository = PlayerRepositoryImp(datasource: datasource);
 final settingsRepository = SettingsRepositoryImp(datasource: datasource);
 final historyRepository = GameHistoryRepositoryImpl(datasource: datasource);
-
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
+  // 1. Preserve splash (standard setup)
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
   await SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 
-  await initHive();
+  // --- START INTRO SEQUENCE ---
 
+  // A Completer allows us to wait for the UI widget to finish its animation
+  final introCompleter = Completer<void>();
+
+  // Run the Intro Widget immediately
+  runApp(GameIntroScreen(
+    onIntroCompleted: () {
+      if (!introCompleter.isCompleted) {
+        introCompleter.complete();
+      }
+    },
+  ));
+
+  // 3. Immediately remove the Native Splash so we can see the White Screen
+  FlutterNativeSplash.remove();
+
+  await initHive();
   await RiveFile.initialize();
 
   final playerData = PlayerData(playerRepository);
   final settingsData = SettingsData(settingsRepository);
   final languageProvider = LanguageProvider(settingsRepository);
-
   final quizData = QuizData(lessonRepository, settingsRepository, historyRepository);
   final shopData = ShopData(shopRepository: shopRepository);
   final riveProvider = RiveProvider();
 
-  final accessControlProvider = AccessControl();
-
-  await accessControlProvider.initialize();
-
-  // settingsData.initialize();
   await riveProvider.initRive(shopData.shop);
-
   await AudioManager.instance.init(settingsData, SoloudAudioRepositoryImp());
 
+  // --- SYNCHRONIZATION ---
+
+  // Critical: Wait here until the Intro Animation is actually finished.
+  // This prevents the game from cutting off the School Logo early.
+  await introCompleter.future;
+
+  // 5. Run the actual App (Replaces the White Screen)
   runApp(
     MultiProvider(
       providers: [
@@ -78,7 +89,6 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => settingsData),
         ChangeNotifierProvider(create: (_) => shopData),
         ChangeNotifierProvider(create: (_) => riveProvider),
-        ChangeNotifierProvider(create: (_) => accessControlProvider),
       ],
       child: DinoRunApp(),
     ),

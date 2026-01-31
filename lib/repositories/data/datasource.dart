@@ -92,17 +92,17 @@ class Datasource {
     _audioBgmBox = await Hive.openBox<AudioBgm>('audiBgm');
 
     // TODO - clear for now for testing.
-    // await _languageBox.clear();
-    // await _levelBox.clear();
-    // await _chapterBox.clear();
-    // await _questionBox.clear();
-    // await _choiceBox.clear();
-    // await _shopBox.clear();
-    // await _characterBox.clear();
-    // await _itemBox.clear();
-    // await _backgroundBox.clear();
-    // await _settingsBox.clear();
-    // await _historyBox.clear();
+    await _languageBox.clear();
+    await _levelBox.clear();
+    await _chapterBox.clear();
+    await _questionBox.clear();
+    await _choiceBox.clear();
+    await _shopBox.clear();
+    await _characterBox.clear();
+    await _itemBox.clear();
+    await _backgroundBox.clear();
+    await _settingsBox.clear();
+    await _historyBox.clear();
 
     // initializing data when the app first load, so it will not be empty
     if (_characterBox.isEmpty) {

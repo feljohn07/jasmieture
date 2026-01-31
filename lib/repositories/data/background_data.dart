@@ -10,12 +10,12 @@ List<Background> backgroundData = [
       'forest/4.png',
       'forest/5.png',
     ],
-    cost: 100,
+    cost: 15,
     purchased: true,
     thumbnail: 'assets/images/shop_items/backgrounds/forest.png',
   ),
   Background(
-    name: 'Mountan Tops',
+    name: 'Mountain Tops',
     parallax: [
       'mountain/1.png',
       'mountain/2.png',
@@ -23,12 +23,12 @@ List<Background> backgroundData = [
       'mountain/4.png',
       'mountain/platform.png',
     ],
-    cost: 100,
+    cost: 15,
     purchased: false,
     thumbnail: 'assets/images/shop_items/backgrounds/mountain.png',
   ),
   Background(
-    name: 'game_background_1',
+    name: 'Rocky Mountains',
     parallax: [
       'game_background_1/layers/sky.png',
       'game_background_1/layers/clouds_1.png',
@@ -37,12 +37,12 @@ List<Background> backgroundData = [
       'game_background_1/layers/clouds_4.png',
       'game_background_1/layers/platform.png',
     ],
-    cost: 100,
+    cost: 15,
     purchased: false,
     thumbnail: 'assets/images/parallax/game_background_1/game_background_1.png',
   ),
   Background(
-    name: 'game_background_2',
+    name: 'Dry Mountains',
     parallax: [
       'game_background_2/layers/sky.png',
       'game_background_2/layers/clouds_1.png',
@@ -52,12 +52,12 @@ List<Background> backgroundData = [
       // 'game_background_2/layers/pines.png',
       'game_background_2/layers/platform.png',
     ],
-    cost: 100,
+    cost: 15,
     purchased: false,
     thumbnail: 'assets/images/parallax/game_background_2/game_background_2.png',
   ),
   Background(
-    name: 'game_background_3',
+    name: 'Night Forest',
     parallax: [
       'game_background_3/layers/sky.png',
       // 'game_background_3/layers/clouds_1.png',
@@ -68,12 +68,12 @@ List<Background> backgroundData = [
       'game_background_3/layers/ground_3.png',
       'game_background_3/layers/platform.png',
     ],
-    cost: 100,
+    cost: 15,
     purchased: false,
     thumbnail: 'assets/images/parallax/game_background_3/game_background_3.png',
   ),
   Background(
-    name: 'game_background_4',
+    name: 'Water Falls',
     parallax: [
       'game_background_4/layers/sky.png',
       'game_background_4/layers/clouds_1.png',
@@ -82,7 +82,7 @@ List<Background> backgroundData = [
       'game_background_4/layers/ground.png',
       'game_background_4/layers/platform.png',
     ],
-    cost: 100,
+    cost: 15,
     purchased: false,
     thumbnail: 'assets/images/parallax/game_background_4/game_background_4.png',
   ),

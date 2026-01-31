@@ -1,7 +1,5 @@
-import 'package:dino_run/models/game/history.dart';
+// import 'package:dino_run/models/game/history.dart';
 import 'package:dino_run/models/player_data.dart';
-import 'package:dino_run/paywall/paywall_provider.dart';
-import 'package:dino_run/paywall/paywall_screen.dart';
 import 'package:dino_run/screens/chapters.dart';
 import 'package:dino_run/screens/create_player_screen.dart';
 import 'package:dino_run/screens/game_history_screen.dart';
@@ -19,13 +17,9 @@ final routes = GoRouter(
   initialLocation: '/',
   redirect: (context, state) async {
     final player = context.read<PlayerData>().playerRepository.getPlayer();
-    final hasAccess = context.read<AccessControl>().accessState;
-
-    print(hasAccess);
-
-    if(hasAccess != AccessState.accessGranted) {
-      return '/paywall';
-    }
+    // final hasAccess = context.read<AccessControl>().accessState;
+    //
+    // print(hasAccess);
 
     if (player == null) {
       return CreateProfileScreen.path;
@@ -34,12 +28,7 @@ final routes = GoRouter(
     return null;
   },
   routes: [
-    GoRoute(
-      path: '/paywall',
-      pageBuilder: (context, state) {
-        return NoTransitionPage(child: PaywallScreen());
-      },
-    ),
+
     GoRoute(
       path: MainMenuScreen.path,
       pageBuilder: (context, state) {

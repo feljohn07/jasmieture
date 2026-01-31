@@ -239,7 +239,7 @@
             {
                 "chapter": 2,
                 "title": "Mga Kausaban sa Materyales",
-                "lock": true,
+                "lock": false,
                 "questions": [
                     {
                         "questionNumber": 1,

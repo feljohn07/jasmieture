@@ -1,5 +1,6 @@
 import 'package:dino_run/view_models.dart/quiz_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart'; // 1. Import this
 import 'package:provider/provider.dart';
 
 import '/game/dino_run.dart';
@@ -21,9 +22,6 @@ class Hud extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final score = context.watch<QuizData>().score;
-    // final level = context.watch<QuizData>().level;
-
     return ChangeNotifierProvider.value(
       value: game.quizData,
       child: Padding(
@@ -32,6 +30,7 @@ class Hud extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // --- 1. LEFT SECTION (Info) ---
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,49 +47,23 @@ class Hud extends StatelessWidget {
                         Icon(Icons.star, color: Colors.amberAccent),
                         Text(
                           '$score',
-                          style: const TextStyle(fontSize: 20, color: Colors.white),
-                        ),
+                          style: const TextStyle(
+                              fontSize: 20, color: Colors.white),
+                        )
+                        // Optional: Small pop when score changes
+                            .animate(key: ValueKey(score))
+                            .scale(duration: 200.ms, curve: Curves.easeOutBack),
                       ],
                     );
                   },
                 ),
-                // Selector<QuizData, int>(
-                //   selector: (_, quizData) => quizData.bonus,
-                //   builder: (_, bonus, __) {
-                //     return Row(
-                //       children: [
-                //         Icon(Icons.star, color: Colors.amberAccent),
-                //         Text(
-                //           'Bunos $bonus',
-                //           style: const TextStyle(fontSize: 20, color: Colors.white),
-                //         ),
-                //       ],
-                //     );
-                //   },
-                // ),
-                // Selector<PlayerData, int>(
-                //   selector: (_, quizData) => quizData.highScore,
-                //   builder: (_, highScore, __) {
-                //     return Text(
-                //       'High: $highScore ',
-                //       style: const TextStyle(color: Colors.white),
-                //     );
-                //   },
-                // ),
-                // Selector<PlayerData, int>(
-                //   selector: (_, playerData) => playerData.currentScore,
-                //   builder: (_, stars, __) {
-                //     return Text(
-                //       'Stars: $stars',
-                //       style: const TextStyle(color: Colors.white),
-                //     );
-                //   },
-                // ),
-
-                // Text('$level'),
-                // Text('$chapter'),
               ],
-            ),
+            )
+                .animate() // Animate Left Section Down
+                .slideY(begin: -1, end: 0, duration: 500.ms, curve: Curves.easeOutBack)
+                .fade(duration: 500.ms),
+
+            // --- 2. MIDDLE SECTION (Pause) ---
             TextButton(
               onPressed: () {
                 game.overlays.remove(Hud.id);
@@ -99,14 +72,21 @@ class Hud extends StatelessWidget {
                 AudioManager.instance.pauseBgm();
               },
               child: const Icon(Icons.pause, color: Colors.white),
-            ),
+            )
+                .animate(delay: 100.ms) // Animate Middle Section Down (Delayed)
+                .slideY(begin: -2, end: 0, duration: 500.ms, curve: Curves.easeOutBack)
+                .fade(duration: 500.ms),
+
+            // --- 3. RIGHT SECTION (Lives) ---
             Selector<QuizData, int>(
               selector: (_, quizData) => quizData.lives,
               builder: (_, lives, __) {
                 return Row(
                   children: List.generate(3, (index) {
                     if (index < lives) {
-                      return const Icon(Icons.favorite, color: Colors.red);
+                      return const Icon(Icons.favorite, color: Colors.red)
+                          .animate(key: ValueKey('life_$index')) // Pulse on load
+                          .scale(duration: 400.ms, curve: Curves.elasticOut);
                     } else {
                       return const Icon(
                         Icons.favorite_border,
@@ -116,7 +96,10 @@ class Hud extends StatelessWidget {
                   }),
                 );
               },
-            ),
+            )
+                .animate(delay: 200.ms) // Animate Right Section Down (Delayed more)
+                .slideY(begin: -2, end: 0, duration: 500.ms, curve: Curves.easeOutBack)
+                .fade(duration: 500.ms),
           ],
         ),
       ),

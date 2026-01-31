@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:dino_run/models/quiz_models/choice.dart';
 import 'package:dino_run/models/quiz_models/question.dart';
 import 'package:dino_run/view_models.dart/quiz_data.dart';
+import 'package:dino_run/widgets/game_over_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -84,7 +85,33 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
     quizData.startTimer();
     question = quizData.question;
 
-    shuffledChoices = List.from(quizData.choices)..shuffle();
+    // --- SMART SHUFFLE LOGIC ---
+    final originalChoices = List<Choice>.from(quizData.choices);
+
+    // Check if "All of the above" exists in the choices
+    bool hasAllAbove = originalChoices.any((c) =>
+        c.choice.toLowerCase().trim() == 'all of the above' ||
+        c.choice.toLowerCase().trim() == 'tanan sa namention sa ibabaw');
+
+    if (hasAllAbove && originalChoices.length > 1) {
+      // 1. Find the special item
+      final allAboveItem = originalChoices.firstWhere((c) =>
+          c.choice.toLowerCase().trim() == 'all of the above' ||
+          c.choice.toLowerCase().trim() == 'tanan sa namention sa ibabaw');
+
+      // 2. Remove it from the pool to be shuffled
+      originalChoices.remove(allAboveItem);
+
+      // 3. Shuffle the rest (the first three)
+      originalChoices.shuffle();
+
+      // 4. Put it back at the very end
+      originalChoices.add(allAboveItem);
+      shuffledChoices = originalChoices;
+    } else {
+      // Regular shuffle if no special item is found
+      shuffledChoices = originalChoices..shuffle();
+    }
 
     setupAndPlayQuestionAudio();
   }
@@ -141,68 +168,124 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
     player.dispose();
   }
 
-  List<Widget> _buildChoiceWidgets() {
+  List<Widget> _buildChoiceWidgets(BoxConstraints constraints) {
+    // Determine responsive sizes using the smaller of height/width to maintain aspect ratio
+    final double shortestSide =
+        constraints.maxWidth < constraints.maxHeight ? constraints.maxWidth : constraints.maxHeight;
+
+    // Scale size: 22% of the shortest side, but capped for large tablets
+    final double cardSize = (shortestSide * 0.22).clamp(80.0, 180.0);
+    final double fontSize = (shortestSide * 0.04).clamp(12.0, 24.0);
+    final double spacing = constraints.maxWidth * 0.03;
+
     if (shuffledChoices.any((element) => element.imagePath.isNotEmpty)) {
       return [
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: List.generate(shuffledChoices.length, (index) {
-              final choice = shuffledChoices[index];
-              final isPlaying = (index == _currentlyPlayingChoiceIndex);
+        // Using Wrap instead of SingleChildScrollView(Row)
+        // This allows items to flow to a second line on narrow portrait phones
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: spacing,
+          runSpacing: spacing,
+          children: List.generate(shuffledChoices.length, (index) {
+            final choice = shuffledChoices[index];
+            final isPlaying = (index == _currentlyPlayingChoiceIndex);
 
-              return AnimatedScale(
-                scale: isPlaying ? 1.05 : 1.0,
-                duration: const Duration(milliseconds: 300),
-                child: InkWell(
-                  onTap: () => check(choice),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            // color: Colors.white,
-                            image: DecorationImage(image: AssetImage(choice.imagePath)),
-                            boxShadow: const [BoxShadow(color: Color.fromARGB(74, 0, 0, 0), blurRadius: 4)],
-                          ),
-                          width: 150,
-                          height: 150,
-                          margin: const EdgeInsets.only(bottom: 4),
+            return AnimatedScale(
+              scale: isPlaying ? 1.1 : 1.0,
+              duration: const Duration(milliseconds: 300),
+              child: InkWell(
+                onTap: () => check(choice),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: cardSize,
+                      height: cardSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        image: DecorationImage(
+                          image: AssetImage(choice.imagePath),
+                          fit: BoxFit.contain, // Changed to contain to avoid cropping
                         ),
-                        SizedBox(
-                          width: 150,
-                          child: Text(
-                            '${letters[index]} . ${choice.choice}',
-                            maxLines: 3,
-                          ),
-                        ),
-                      ],
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 8,
+                            offset: Offset(0, 4),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 8),
+                    SizedBox(
+                      width: cardSize,
+                      child: Text(
+                        '${letters[index]}. ${choice.choice}',
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: fontSize * 0.8,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              );
-            }),
-          ),
+              ),
+            );
+          }),
         )
       ];
     } else {
+// --- TEXT ONLY CHOICES (Normal Text Version) ---
       return List.generate(shuffledChoices.length, (index) {
         final choice = shuffledChoices[index];
         final isPlaying = (index == _currentlyPlayingChoiceIndex);
 
         return AnimatedScale(
-          scale: isPlaying ? 1.1 : 1.0,
+          scale: isPlaying ? 1.05 : 1.0,
           duration: const Duration(milliseconds: 300),
-          child: InkWell(
-            onTap: () => check(choice),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                '${letters[index]}. ${choice.choice}',
-                style: const TextStyle(fontSize: 18),
+          child: Padding(
+            // This controls the exact gap between items
+            padding: const EdgeInsets.symmetric(vertical: 6.0),
+            child: InkWell(
+              onTap: () => check(choice),
+              borderRadius: BorderRadius.circular(10),
+              child: Row(
+                children: [
+                  // The "A, B, C, D" Circle
+                  Container(
+                    width: fontSize * 1.4,
+                    height: fontSize * 1.4,
+                    decoration: const BoxDecoration(
+                      color: Colors.brown,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Text(
+                        letters[index],
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: fontSize * 0.7,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  // The Choice Text
+                  Expanded(
+                    child: Text(
+                      choice.choice,
+                      style: TextStyle(
+                        fontSize: fontSize * 0.9,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -242,7 +325,7 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
             SizedBox(
               height: 14,
             ),
-             Container(
+            Container(
               padding: EdgeInsets.all(24),
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
@@ -282,10 +365,10 @@ class _QuestionOverlayState extends State<QuestionOverlay> {
                   children: [
                     Text(
                       '${context.watch<QuizData>().question?.question}',
-                      style: const TextStyle(fontSize: 24),
+                      style: const TextStyle(fontSize: 18),
                     ),
                     const SizedBox(height: 24),
-                    ..._buildChoiceWidgets(),
+                    ..._buildChoiceWidgets(constraints),
                   ],
                 ),
               ),

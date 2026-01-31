@@ -24,17 +24,14 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
   late final AnimationController _controller;
   late final Animation<int> _scoreAnimation;
   late final Animation<int> _bonusAnimation;
-  // 1. Add an Animation for the time.
   late final Animation<int> _timeAnimation;
 
   late int _finalScore;
   late int _finalBonus;
-  // 2. Add a variable for the final time.
   late int _finalTime;
 
-  // Add a new state flag for the time animation phase.
   bool _isBonusPhase = false;
-  bool _isTimePhase = false; // New state flag
+  bool _isTimePhase = false;
   bool _isAnimationFinished = false;
 
   @override
@@ -46,11 +43,9 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
     final quizData = Provider.of<QuizData>(context, listen: false);
     _finalScore = quizData.score;
     _finalBonus = quizData.bonus;
-    // 3. Get the final time from QuizData.
     _finalTime = quizData.elapsedSeconds;
 
     _controller = AnimationController(
-      // Make the animation a bit longer to accommodate the new phase.
       duration: const Duration(milliseconds: 2000),
       vsync: this,
     );
@@ -62,30 +57,23 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
 
     _scoreAnimation = IntTween(begin: 0, end: _finalScore).animate(curvedAnimation);
     _bonusAnimation = IntTween(begin: 0, end: _finalBonus).animate(curvedAnimation);
-    // 4. Create the IntTween for the time animation.
     _timeAnimation = IntTween(begin: 0, end: _finalTime).animate(curvedAnimation);
 
-    // 5. Update the listener to handle the new three-phase sequence.
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        // Phase 1 (Score) is complete, start Phase 2 (Bonus).
         if (!_isBonusPhase && !_isTimePhase) {
           setState(() {
             _isBonusPhase = true;
           });
           _controller.reset();
           _controller.forward();
-        }
-        // Phase 2 (Bonus) is complete, start Phase 3 (Time).
-        else if (_isBonusPhase && !_isTimePhase) {
+        } else if (_isBonusPhase && !_isTimePhase) {
           setState(() {
             _isTimePhase = true;
           });
           _controller.reset();
           _controller.forward();
-        }
-        // Phase 3 (Time) is complete, finish the animation.
-        else if (_isBonusPhase && _isTimePhase) {
+        } else if (_isBonusPhase && _isTimePhase) {
           setState(() {
             _isAnimationFinished = true;
           });
@@ -94,6 +82,14 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
     });
 
     _controller.forward();
+  }
+
+  /// NEW: Helper method to format seconds into MM:SS
+  String _formatToMinutes(int totalSeconds) {
+    final int minutes = totalSeconds ~/ 60;
+    final int seconds = totalSeconds % 60;
+    // padLeft ensures that 5 seconds appears as :05
+    return '$minutes:${seconds.toString().padLeft(2, '0')}';
   }
 
   @override
@@ -126,8 +122,6 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
                   ),
                   child: Column(
                     children: [
-                      // 6. Wrap the entire Row in the AnimatedBuilder.
-                      // This allows both score and time to be animated by the same controller.
                       AnimatedBuilder(
                         animation: _controller,
                         builder: (context, child) {
@@ -140,9 +134,10 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
                                     'You Score',
                                     style: TextStyle(fontSize: 28, color: colorBlack),
                                   ),
-                                  // Final State: Show total score.
                                   if (_isAnimationFinished)
                                     Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
                                           '${_finalScore + _finalBonus}',
@@ -160,24 +155,21 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
                                         ),
                                       ],
                                     )
-                                  // Phase 3: Time is animating, score/bonus are static.
                                   else if (_isTimePhase)
                                     Text(
                                       '$_finalScore + ( $_finalBonus )',
                                       style: const TextStyle(fontSize: 28, color: colorBlack),
                                     )
-                                  // Phase 2: Bonus is animating.
                                   else if (_isBonusPhase)
-                                    Text(
-                                      '$_finalScore + ( ${_bonusAnimation.value} )',
-                                      style: const TextStyle(fontSize: 28, color: colorBlack),
-                                    )
-                                  // Phase 1: Score is animating.
-                                  else
-                                    Text(
-                                      '${_scoreAnimation.value}',
-                                      style: const TextStyle(fontSize: 28, color: colorBlack),
-                                    ),
+                                      Text(
+                                        '$_finalScore + ( ${_bonusAnimation.value} )',
+                                        style: const TextStyle(fontSize: 28, color: colorBlack),
+                                      )
+                                    else
+                                      Text(
+                                        '${_scoreAnimation.value}',
+                                        style: const TextStyle(fontSize: 28, color: colorBlack),
+                                      ),
                                 ],
                               ),
                               Container(
@@ -192,17 +184,20 @@ class _GameCompletedMenuState extends State<GameCompletedMenu>
                                     'Time Taken',
                                     style: TextStyle(fontSize: 28, color: colorBlack),
                                   ),
-                                  // Animate the time value based on the current phase.
+                                  // UPDATED: Logic to use _formatToMinutes
                                   Text(
                                     // Phase 3: Time is animating.
                                     (_isTimePhase && !_isAnimationFinished)
-                                        ? '${_timeAnimation.value} sec/s'
-                                        // After Phase 3: Show final static time.
+                                        ? _formatToMinutes(_timeAnimation.value)
+                                    // After Phase 3: Show final static time.
                                         : _isAnimationFinished
-                                            ? '$_finalTime sec/s'
-                                            // Before Phase 3: Show 0.
-                                            : '0 sec/s',
-                                    style: const TextStyle(fontSize: 28, color: colorBlack),
+                                        ? _formatToMinutes(_finalTime)
+                                    // Before Phase 3: Show 0:00.
+                                        : _formatToMinutes(0),
+                                    style: const TextStyle(
+                                        fontSize: 28,
+                                        color: colorBlack
+                                    ),
                                   ),
                                 ],
                               ),
